@@ -1,0 +1,1904 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Rainbow Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;typescript&quot;,&quot;cpp&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="typescript">JavaScript</a>
+              <a href="#" data-language-name="cpp">C++</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#download-the-source-code" class="toc-h2 toc-link" data-title="Download the Source Code">Download the Source Code</a>
+                  </li>
+                  <li>
+                    <a href="#building-for-windows" class="toc-h2 toc-link" data-title="Building for Windows">Building for Windows</a>
+                  </li>
+                  <li>
+                    <a href="#building-for-macos" class="toc-h2 toc-link" data-title="Building for macOS">Building for macOS</a>
+                  </li>
+                  <li>
+                    <a href="#building-for-linux" class="toc-h2 toc-link" data-title="Building for Linux">Building for Linux</a>
+                  </li>
+                  <li>
+                    <a href="#building-for-android" class="toc-h2 toc-link" data-title="Building for Android">Building for Android</a>
+                  </li>
+                  <li>
+                    <a href="#building-for-ios" class="toc-h2 toc-link" data-title="Building for iOS">Building for iOS</a>
+                  </li>
+                  <li>
+                    <a href="#build-configuration" class="toc-h2 toc-link" data-title="Build Configuration">Build Configuration</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#basics" class="toc-h1 toc-link" data-title="Basics">Basics</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#file-structure" class="toc-h2 toc-link" data-title="File Structure">File Structure</a>
+                  </li>
+                  <li>
+                    <a href="#config-json-optional" class="toc-h2 toc-link" data-title="config.json (optional)"><code>config.json</code> (optional)</a>
+                  </li>
+                  <li>
+                    <a href="#entry-point" class="toc-h2 toc-link" data-title="Entry Point">Entry Point</a>
+                  </li>
+                  <li>
+                    <a href="#sprite-batches" class="toc-h2 toc-link" data-title="Sprite Batches">Sprite Batches</a>
+                  </li>
+                  <li>
+                    <a href="#render-queue" class="toc-h2 toc-link" data-title="Render Queue">Render Queue</a>
+                  </li>
+                  <li>
+                    <a href="#scenes" class="toc-h2 toc-link" data-title="Scenes">Scenes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#audio" class="toc-h1 toc-link" data-title="Audio">Audio</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#supported-audio-codecs" class="toc-h2 toc-link" data-title="Supported Audio Codecs">Supported Audio Codecs</a>
+                  </li>
+                  <li>
+                    <a href="#resource-management" class="toc-h2 toc-link" data-title="Resource Management">Resource Management</a>
+                  </li>
+                  <li>
+                    <a href="#playback" class="toc-h2 toc-link" data-title="Playback">Playback</a>
+                  </li>
+                  <li>
+                    <a href="#configuration" class="toc-h2 toc-link" data-title="Configuration">Configuration</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-and-known-limitations" class="toc-h2 toc-link" data-title="Caveats and Known Limitations">Caveats and Known Limitations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#input" class="toc-h1 toc-link" data-title="Input">Input</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#input-management-c-only" class="toc-h2 toc-link" data-title="Input Management (C++ only)">Input Management (C++ only)</a>
+                  </li>
+                  <li>
+                    <a href="#example" class="toc-h2 toc-link" data-title="Example">Example</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sprite-sheet-animations" class="toc-h1 toc-link" data-title="Sprite Sheet Animations">Sprite Sheet Animations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#animation-management" class="toc-h2 toc-link" data-title="Animation Management">Animation Management</a>
+                  </li>
+                  <li>
+                    <a href="#animation-callback-events" class="toc-h2 toc-link" data-title="Animation Callback Events">Animation Callback Events</a>
+                  </li>
+                  <li>
+                    <a href="#example" class="toc-h2 toc-link" data-title="Example">Example</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-and-known-limitations" class="toc-h2 toc-link" data-title="Caveats and Known Limitations">Caveats and Known Limitations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#math-c-only" class="toc-h1 toc-link" data-title="Math (C++ only)">Math (C++ only)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#power-of-2" class="toc-h2 toc-link" data-title="Power of 2">Power of 2</a>
+                  </li>
+                  <li>
+                    <a href="#trigonometry" class="toc-h2 toc-link" data-title="Trigonometry">Trigonometry</a>
+                  </li>
+                  <li>
+                    <a href="#vec2" class="toc-h2 toc-link" data-title="Vec2">Vec2</a>
+                  </li>
+                  <li>
+                    <a href="#miscellaneous" class="toc-h2 toc-link" data-title="Miscellaneous">Miscellaneous</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#timers-c-only" class="toc-h1 toc-link" data-title="Timers (C++ only)">Timers (C++ only)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#timer-management" class="toc-h2 toc-link" data-title="Timer Management">Timer Management</a>
+                  </li>
+                  <li>
+                    <a href="#example" class="toc-h2 toc-link" data-title="Example">Example</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-and-known-limitations" class="toc-h2 toc-link" data-title="Caveats and Known Limitations">Caveats and Known Limitations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#transitions-c-only" class="toc-h1 toc-link" data-title="Transitions (C++ only)">Transitions (C++ only)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#functions" class="toc-h2 toc-link" data-title="Functions">Functions</a>
+                  </li>
+                  <li>
+                    <a href="#timing-functions" class="toc-h2 toc-link" data-title="Timing Functions">Timing Functions</a>
+                  </li>
+                  <li>
+                    <a href="#example" class="toc-h2 toc-link" data-title="Example">Example</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-and-known-limitations" class="toc-h2 toc-link" data-title="Caveats and Known Limitations">Caveats and Known Limitations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#coding-standard" class="toc-h1 toc-link" data-title="Coding Standard">Coding Standard</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#general-practices" class="toc-h2 toc-link" data-title="General Practices">General Practices</a>
+                  </li>
+                  <li>
+                    <a href="#source-files" class="toc-h2 toc-link" data-title="Source Files">Source Files</a>
+                  </li>
+                  <li>
+                    <a href="#classes" class="toc-h2 toc-link" data-title="Classes">Classes</a>
+                  </li>
+                  <li>
+                    <a href="#naming-conventions" class="toc-h2 toc-link" data-title="Naming Conventions">Naming Conventions</a>
+                  </li>
+                  <li>
+                    <a href="#formatting" class="toc-h2 toc-link" data-title="Formatting">Formatting</a>
+                  </li>
+                  <li>
+                    <a href="#using-linters" class="toc-h2 toc-link" data-title="Using Linters">Using Linters</a>
+                  </li>
+                  <li>
+                    <a href="#other-guidelines" class="toc-h2 toc-link" data-title="Other Guidelines">Other Guidelines</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#license" class="toc-h1 toc-link" data-title="License">License</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href="https://bitbucket.org/tido/rainbow">Fork the code</a></li>
+            <li><a href="https://trello.com/b/r2TqudY6/rainbow">Roadmap</a></li>
+            <li><a href="https://github.com/lord/slate">Documentation powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='getting-started'>Getting Started</h1><h2 id='download-the-source-code'>Download the Source Code</h2>
+<p>First, make sure you&#39;ve installed <a href="https://git-scm.com/downloads">Git</a> as that&#39;s
+what we&#39;ll be using to retrieve the source code. The following command will
+download Rainbow and all of its submodules into a folder named <code>rainbow</code>:</p>
+
+<p><code>git clone --recursive https://bitbucket.org/tido/rainbow.git</code></p>
+
+<p>If you&#39;re using a graphical UI for Git, make sure to checkout the submodules as
+well.</p>
+<h2 id='building-for-windows'>Building for Windows</h2>
+<ol>
+<li><p>Install <a href="https://www.visualstudio.com/vs/community/">Visual Studio Community</a>.</p></li>
+<li><p>Install <a href="https://cmake.org/download/">CMake</a>.</p></li>
+<li><p><strong>Optional:</strong> Download FMOD Studio API, and extract it. Copy the headers into
+<code>lib/FMOD/inc/</code>, and binaries into <code>lib/FMOD/lib/windows/</code>. You should end up
+with the following:</p>
+<pre class="highlight shell tab-shell"><code>rainbow/lib/FMOD
+├── inc
+│   ├── fmod.h
+│   ├── fmod.hpp
+│   ├── fmod_codec.h
+│   ├── fmod_common.h
+│   ├── fmod_dsp.h
+│   ├── fmod_dsp_effects.h
+│   ├── fmod_errors.h
+│   ├── fmod_output.h
+│   ├── fmod_studio.h
+│   ├── fmod_studio.hpp
+│   └── fmod_studio_common.h
+└── lib
+    └── windows
+        ├── fmod.dll
+        ├── fmod_vc.lib
+        ├── fmod64.dll
+        ├── fmod64_vc.lib
+        ├── fmodstudio.dll
+        ├── fmodstudio_vc.lib
+        ├── fmodstudio64.dll
+        └── fmodstudio64_vc.lib
+</code></pre></li>
+<li><p>The PowerShell script <code>tools\make.ps1</code> will walk you through customising your
+Rainbow project. Find it using File Explorer, right-click the file, and
+select <em>Run with PowerShell</em>. You can dismiss any prompts about execution
+policy.</p></li>
+<li><p>When Visual Studio opens the project, simply hit <code>F5</code> to build and run.</p></li>
+</ol>
+<h2 id='building-for-macos'>Building for macOS</h2>
+<ol>
+<li><p>Install <a href="https://itunes.apple.com/app/xcode/id497799835?mt=12">Xcode</a> from App Store.</p></li>
+<li><p>Once Xcode is installed, launch it once to install Command Line Tools.</p></li>
+<li><p>Install <a href="https://brew.sh/">Homebrew</a>.</p></li>
+<li><p>Install build dependencies from the root of the repo: <code>brew bundle</code></p></li>
+<li><p><strong>Optional:</strong> Download FMOD Studio API, extract it, and point
+<code>tools/fmod-import-tool.sh</code> at the directory you extracted it to. This should
+copy all the necessary files into the <code>lib</code> folder.</p></li>
+<li><p>Make a directory for building Rainbow, then run the build script:</p>
+<pre class="highlight shell tab-shell"><code>mkdir rainbow-build
+<span class="nb">cd </span>rainbow-build
+/path/to/rainbow/tools/build.sh -DCMAKE_BUILD_TYPE<span class="o">=</span>&lt;configuration&gt; <span class="o">[</span>option ...]
+</code></pre></li>
+<li><p>Start the playground:</p>
+<pre class="highlight shell tab-shell"><code>./rainbow /path/to/rainbow/js
+</code></pre></li>
+</ol>
+
+<p>You&#39;ll find an overview of configuration and feature flags further below.</p>
+<h2 id='building-for-linux'>Building for Linux</h2>
+<ol>
+<li><p>Use your distro&#39;s package manager to install the dependencies:</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Arch Linux</td>
+<td><code>pacman -S --needed cmake gcc mesa ninja pulseaudio sdl2</code></td>
+</tr>
+<tr>
+<td>Debian/Ubuntu</td>
+<td><code>apt install build-essential cmake libgl1-mesa-dev libpulse-dev libsdl2-dev ninja pkg-config pulseaudio</code></td>
+</tr>
+</tbody></table></li>
+<li><p><strong>Optional:</strong> Download FMOD Studio API, extract it, and point
+<code>tools/fmod-import-tool.sh</code> at the directory you extracted it to. This should
+copy all the necessary files into the <code>lib</code> folder.</p></li>
+<li><p>Make a directory for building Rainbow, then run the build script:</p>
+<pre class="highlight shell tab-shell"><code>mkdir rainbow-build
+<span class="nb">cd </span>rainbow-build
+/path/to/rainbow/tools/build.sh -DCMAKE_BUILD_TYPE<span class="o">=</span>&lt;configuration&gt; <span class="o">[</span>option ...]
+</code></pre></li>
+<li><p>Start the playground:</p>
+<pre class="highlight shell tab-shell"><code>./rainbow /path/to/rainbow/js
+</code></pre></li>
+</ol>
+
+<p>You&#39;ll find an overview of configuration and feature flags further below.</p>
+<h2 id='building-for-android'>Building for Android</h2>
+<ol>
+<li>Install <a href="https://developer.android.com/studio/">Android Studio</a>.</li>
+<li>Install <a href="https://cmake.org/">CMake</a>.</li>
+<li><strong>Optional:</strong> Download FMOD Studio API, extract it, and point
+<code>tools/fmod-import-tool.sh</code> at the directory you extracted it to. This should
+copy all the necessary files into the <code>lib</code> folder.</li>
+<li>Open <code>build/android/</code> in Android Studio.</li>
+<li>Run the app on your device or emulator.</li>
+</ol>
+
+<aside class="notice">
+    If you get an error about selecting Android SDK, press Ctrl/⌘+Shift+A and
+    search for "Sync Project with Gradle Files".
+</aside>
+<h2 id='building-for-ios'>Building for iOS</h2>
+<ol>
+<li>Install <a href="https://itunes.apple.com/no/app/xcode/id497799835?mt=12">Xcode</a> from the App Store.</li>
+<li>Open <code>build/ios/Rainbow.xcodeproj</code> in Xcode.</li>
+<li>Build and run the current scheme.</li>
+</ol>
+<h2 id='build-configuration'>Build Configuration</h2>
+<p>Available features and build configurations:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Build configuration</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>Debug</code></td>
+<td style="text-align: left">Compiles Rainbow in debug mode with little or no optimizations.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>Release</code></td>
+<td style="text-align: left">Compiles Rainbow in release mode with most optimizations turned on.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>RelWithDebInfo</code></td>
+<td style="text-align: left">Similar to <code>Release</code> but with debugging symbols.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>MinSizeRel</code></td>
+<td style="text-align: left">Similar to <code>Release</code> with emphasis on small binary size.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Feature flag</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>UNIT_TESTS</code></td>
+<td style="text-align: left">Compiles unit tests. Only useful for engine developers.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>USE_FMOD_STUDIO</code></td>
+<td style="text-align: left">Replaces Rainbow&#39;s custom audio engine with FMOD Studio.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>USE_HEIMDALL</code></td>
+<td style="text-align: left">Compiles in Rainbow&#39;s debug overlay and other debugging facilities.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>USE_PHYSICS</code></td>
+<td style="text-align: left">Compiles in Box2D.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>USE_SPINE</code></td>
+<td style="text-align: left">Enables support for loading Spine rigs.</td>
+</tr>
+</tbody></table>
+
+<p>Example: Build Rainbow with physics and Spine support for game development.</p>
+<pre class="highlight shell tab-shell"><code>/path/to/rainbow/tools/build.sh -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug <span class="se">\</span>
+                                -DUSE_HEIMDALL<span class="o">=</span>1 <span class="se">\</span>
+                                -DUSE_PHYSICS<span class="o">=</span>1 <span class="se">\</span>
+                                -DUSE_SPINE<span class="o">=</span>1
+</code></pre>
+<p>You can pass any number of CMake options.</p>
+<h3 id='specifying-compiler'>Specifying Compiler</h3>
+<p>By default, <a href="https://gcc.gnu.org/">GCC</a> and <a href="https://clang.llvm.org/">Clang</a>
+will be used to compile both C and C++ code on Linux and macOS respectively.
+Unix Makefiles is the default generator on Linux, and Xcode on macOS. You can
+change these by prefixing environment variables. For instance, to use GCC and
+<a href="https://ninja-build.org/">Ninja</a> in place of Clang and Makefiles:</p>
+
+<p><code>CC=gcc CXX=g++ GENERATOR=Ninja /path/to/rainbow/tools/build.sh [option ...]</code></p>
+
+<p>If you have problems running <code>build.sh</code>, make sure it has execution permission:</p>
+
+<p><code>chmod +x /path/to/rainbow/tools/build.sh</code></p>
+<h1 id='basics'>Basics</h1><h2 id='file-structure'>File Structure</h2>
+<ul>
+<li>config.json</li>
+<li>index.js</li>
+</ul>
+<h2 id='config-json-optional'><code>config.json</code> (optional)</h2>
+<p>The configuration file is just a JSON. It enables/disables features, and sets
+the window size (Linux/macOS/Windows).</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./rainbow-config.schema.json"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accelerometer"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"allowHighDPI"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"msaa"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"resolution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1280</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">720</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"suspendOnFocusLost"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='entry-point'>Entry Point</h2><pre class="highlight cpp tab-cpp"><code><span class="c1">// Any class that derives from `GameBase` is a potential entry point. The class
+// may also override any or none of the methods `init_impl()` and
+// `update_impl()`. Although, not overriding any of them will display nothing.
+</span>
+<span class="k">class</span> <span class="nc">MyGame</span> <span class="k">final</span> <span class="o">:</span> <span class="k">public</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">MyGame</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span> <span class="o">:</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="p">(</span><span class="n">director</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">rainbow</span><span class="o">::</span><span class="n">spritebatch_t</span> <span class="n">batch_</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="n">init_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec2i</span> <span class="o">&amp;</span><span class="n">screen</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="n">update_impl</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">dt</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// The engine will call `init_impl()` once on startup, after a graphics context
+// has been created. From then on, `update_impl()` will be called every frame.
+// `dt` is the time passed since last frame, in milliseconds.
+//
+// Finally, let Rainbow know which class to use by implementing
+// `GameBase::create()`:
+</span>
+<span class="k">auto</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MyGame</span><span class="o">&gt;</span><span class="p">(</span><span class="n">director</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// See `Script/NoGame.cpp` and `Script/NoGame.h` for a complete example. We will
+// add sprites to the screen in the following sections.
+</span></code></pre><pre class="highlight typescript tab-typescript"><code><span class="c1">// 'index.js' must implement the following two entry-point functions:</span>
+
+<span class="kd">function</span> <span class="nx">init</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Called once on startup.</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">update</span><span class="p">(</span><span class="nx">dt</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Called every frame. |dt| is the time since last frame in milliseconds.</span>
+<span class="p">}</span>
+
+<span class="c1">// There is no draw function. Later, we'll use the render queue to get things</span>
+<span class="c1">// onto the screen.</span>
+</code></pre><h2 id='sprite-batches'>Sprite Batches</h2>
+<p>One of Rainbow&#39;s philosophies is to always batch sprites. So in order to create
+a sprite, one must first create a batch.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span> <span class="n">MyGame</span><span class="o">::</span><span class="n">init_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec2i</span><span class="o">&amp;</span> <span class="n">screen</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// Intended number of sprites in batch
+</span>    <span class="n">batch_</span> <span class="o">=</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">spritebatch</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">init</span><span class="p">(</span><span class="nx">screenWidth</span><span class="p">,</span> <span class="nx">screenHeight</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// Intended number of sprites in batch</span>
+  <span class="kd">const</span> <span class="nx">batch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">SpriteBatch</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+</code></pre>
+<p>The <code>count</code> tells Rainbow that we intend to create a batch of two sprites. Next,
+we&#39;ll create two sprites:</p>
+<pre class="highlight cpp tab-cpp"><code>    <span class="k">auto</span> <span class="n">sprite1</span> <span class="o">=</span> <span class="n">batch_</span><span class="o">-&gt;</span><span class="n">create_sprite</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">sprite2</span> <span class="o">=</span> <span class="n">batch_</span><span class="o">-&gt;</span><span class="n">create_sprite</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code>  <span class="kd">const</span> <span class="nx">sprite1</span> <span class="o">=</span> <span class="nx">batch</span><span class="p">.</span><span class="nx">createSprite</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">sprite2</span> <span class="o">=</span> <span class="nx">batch</span><span class="p">.</span><span class="nx">createSprite</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</code></pre>
+<p>The order in which sprites are created are important as it determines the draw
+order. Here, <code>sprite1</code> is drawn first, followed by <code>sprite2</code>.</p>
+
+<p>Now we have a sprite batch containing two untextured sprites. Let&#39;s add a
+texture:</p>
+<pre class="highlight cpp tab-cpp"><code>    <span class="c1">// Load the texture atlas.
+</span>    <span class="k">auto</span> <span class="n">atlas</span> <span class="o">=</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">texture</span><span class="p">(</span><span class="s">"canvas.png"</span><span class="p">);</span>
+    <span class="n">batch_</span><span class="o">-&gt;</span><span class="n">set_texture</span><span class="p">(</span><span class="n">atlas</span><span class="p">);</span>
+
+    <span class="c1">// Create a texture from the atlas, and assign to our sprites.
+</span>    <span class="k">auto</span> <span class="n">texture</span> <span class="o">=</span> <span class="n">atlas</span><span class="o">-&gt;</span><span class="n">create</span><span class="p">(</span><span class="n">Vec2i</span><span class="p">{</span><span class="mi">448</span><span class="p">,</span> <span class="mi">108</span><span class="p">},</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="n">sprite1</span><span class="o">-&gt;</span><span class="n">set_texture</span><span class="p">(</span><span class="n">texture</span><span class="p">);</span>
+    <span class="n">sprite2</span><span class="o">-&gt;</span><span class="n">set_texture</span><span class="p">(</span><span class="n">texture</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code>  <span class="c1">// Load the texture atlas.</span>
+  <span class="kd">const</span> <span class="nx">atlas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Texture</span><span class="p">(</span><span class="s2">"canvas.png"</span><span class="p">);</span>
+  <span class="nx">batch</span><span class="p">.</span><span class="nx">setTexture</span><span class="p">(</span><span class="nx">atlas</span><span class="p">);</span>
+
+  <span class="c1">// Create a texture from the atlas, and assign to our sprites.</span>
+  <span class="kd">const</span> <span class="nx">texture</span> <span class="o">=</span> <span class="nx">atlas</span><span class="p">.</span><span class="nx">addRegion</span><span class="p">(</span><span class="mi">448</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+  <span class="nx">sprite1</span><span class="p">.</span><span class="nx">setTexture</span><span class="p">(</span><span class="nx">texture</span><span class="p">);</span>
+  <span class="nx">sprite2</span><span class="p">.</span><span class="nx">setTexture</span><span class="p">(</span><span class="nx">texture</span><span class="p">);</span>
+</code></pre>
+<p>First, we load the actual texture. Textures are always loaded into atlases which
+can be assigned to sprite batches. &quot;Actual&quot; textures are created by defining a
+region. These, in turn, are assigned individual sprites. This makes the texture
+atlas and its textures reusable. Additionally, it enables skinning, i.e.
+changing the texture of every sprite in a batch by changing only the texture
+atlas. Rainbow does not prevent you from loading the same asset.</p>
+
+<p>Please refer to the API reference for full details. For displaying text, look up
+<code>Label</code>.</p>
+<h2 id='render-queue'>Render Queue</h2>
+<p>Anything that needs to be updated and/or drawn every frame, must be added to the
+render queue. The render queue determines the order in which objects are drawn.</p>
+
+<p>Now we&#39;ll add the batches we&#39;ve created earlier:</p>
+<pre class="highlight cpp tab-cpp"><code>    <span class="c1">// Add batch to the render queue. Note that the render queue is only
+</span>    <span class="c1">// accessible from the entry point. If you need it elsewhere, you must pass
+</span>    <span class="c1">// along its pointer.
+</span>    <span class="k">auto</span> <span class="n">unit</span> <span class="o">=</span> <span class="n">render_queue</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">batch_</span><span class="p">);</span>
+
+    <span class="c1">// Position our sprites at the center of the screen.
+</span>    <span class="k">const</span> <span class="kt">float</span> <span class="n">cx</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span> <span class="mf">0.5</span><span class="n">f</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">float</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="mf">0.5</span><span class="n">f</span><span class="p">;</span>
+    <span class="n">sprite1</span><span class="o">-&gt;</span><span class="n">set_position</span><span class="p">(</span><span class="n">Vec2f</span><span class="p">{</span><span class="n">cx</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="n">cy</span><span class="p">});</span>
+    <span class="n">sprite2</span><span class="o">-&gt;</span><span class="n">set_position</span><span class="p">(</span><span class="n">Vec2f</span><span class="p">{</span><span class="n">cx</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="n">cy</span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code>  <span class="c1">// Add batch to the render queue.</span>
+  <span class="kd">const</span> <span class="nx">unit</span> <span class="o">=</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">RenderQueue</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">batch</span><span class="p">);</span>
+
+  <span class="c1">// Position our sprites at the center of the screen.</span>
+  <span class="kd">const</span> <span class="nx">cx</span> <span class="o">=</span> <span class="nx">screenWidth</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">cy</span> <span class="o">=</span> <span class="nx">screenHeight</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+  <span class="nx">sprite1</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">({</span> <span class="na">x</span><span class="p">:</span> <span class="nx">cx</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="nx">cy</span> <span class="p">});</span>
+  <span class="nx">sprite2</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">({</span> <span class="na">x</span><span class="p">:</span> <span class="nx">cx</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="nx">cy</span> <span class="p">});</span>
+<span class="p">}</span>
+</code></pre>
+<p>If you compile and run this code, you should see two identical sprites next to
+each other at the center of the screen.</p>
+
+<p>As always, refer to the API reference for full details.</p>
+<h2 id='scenes'>Scenes</h2>
+<p>Sometimes, dealing with the render queue can be confusing or frustrating if you
+can&#39;t fully visualise the order. However, you can define entire scenes with
+JSON. An empty scene looks something like:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./rainbow-scene.schema.json"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">/*</span><span class="w"> </span><span class="err">declare</span><span class="w"> </span><span class="err">fonts</span><span class="p">,</span><span class="w"> </span><span class="err">sounds</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">textures</span><span class="w"> </span><span class="err">here</span><span class="w"> </span><span class="err">*/</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">/*</span><span class="w"> </span><span class="err">declare</span><span class="w"> </span><span class="err">animations</span><span class="p">,</span><span class="w"> </span><span class="err">labels</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">sprites</span><span class="w"> </span><span class="err">here</span><span class="w"> </span><span class="err">*/</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>We can recreate the earlier scene:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./rainbow-scene.schema.json"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"atlas"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canvas.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="mi">448</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">]]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"atlas"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sprites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sprite1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"texture"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sprite2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"texture"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>If you save the file as <code>my.scene.json</code>, we can implement our new entry point:</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span> <span class="n">MyGame</span><span class="o">::</span><span class="n">init_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec2i</span><span class="o">&amp;</span> <span class="n">screen</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">scene_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Scene</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"my.scene.json"</span><span class="p">);</span>
+    <span class="n">render_queue</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">scene_</span><span class="p">);</span>
+
+    <span class="c1">// You can also access assets and resources through this object. We retrieve
+</span>    <span class="c1">// them by name:
+</span>
+    <span class="c1">// auto batch = scene_-&gt;get&lt;SpriteBatch&gt;("batch");
+</span>    <span class="c1">// auto sprite1 = scene_-&gt;get&lt;SpriteRef&gt;("sprite1");
+</span><span class="p">}</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">init</span><span class="p">(</span><span class="nx">screenWidth</span><span class="p">,</span> <span class="nx">screenHeight</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Scene</span><span class="p">(</span><span class="s2">"my.scene.json"</span><span class="p">);</span>
+  <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">RenderQueue</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="s2">"myScene"</span><span class="p">);</span>
+
+  <span class="c1">// Position our sprites at the center of the screen.</span>
+  <span class="kd">const</span> <span class="nx">cx</span> <span class="o">=</span> <span class="nx">screenWidth</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">cy</span> <span class="o">=</span> <span class="nx">screenHeight</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+  <span class="nx">scene</span><span class="p">.</span><span class="nx">sprite1</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">({</span> <span class="na">x</span><span class="p">:</span> <span class="nx">cx</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="nx">cy</span> <span class="p">});</span>
+  <span class="nx">scene</span><span class="p">.</span><span class="nx">sprite2</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">({</span> <span class="na">x</span><span class="p">:</span> <span class="nx">cx</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="nx">cy</span> <span class="p">});</span>
+<span class="p">}</span>
+</code></pre><h1 id='audio'>Audio</h1>
+<p>Audio consists mainly of the sound object and the audio channel. The sound
+object is basically an audio buffer. It can be wholly loaded, or it can stream
+from disk. A sound object is played on an audio channel. An audio channel can
+only play one sound object at a time but the sound object can be used by any
+number of channels. As raw audio data can take a large amount of memory, it is
+recommended to only create static sound objects for short audio files (such as
+sound effects).</p>
+<h2 id='supported-audio-codecs'>Supported Audio Codecs</h2>
+<table><thead>
+<tr>
+<th>OS</th>
+<th style="text-align: center">AAC</th>
+<th style="text-align: center">ALAC</th>
+<th style="text-align: center">HE-AAC</th>
+<th style="text-align: center">MP3</th>
+<th style="text-align: center">Ogg</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Windows</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✓</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✓</td>
+</tr>
+<tr>
+<td>Android</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✓</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center"></td>
+</tr>
+</tbody></table>
+
+<p>This table is not exhaustive. Your target devices may support more decoders than
+listed here. Please check the appropriate documentations.</p>
+<h2 id='resource-management'>Resource Management</h2><pre class="highlight cpp tab-cpp"><code><span class="n">Sound</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">load_sound</span>   <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">path</span><span class="p">);</span>
+<span class="n">Sound</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">load_stream</span>  <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">path</span><span class="p">);</span>
+<span class="kt">void</span>    <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">release</span>      <span class="p">(</span><span class="n">Sound</span><span class="o">*</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">loadSound</span><span class="p">(</span><span class="nx">path</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">Sound</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">loadStream</span><span class="p">(</span><span class="nx">path</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">Sound</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">release</span><span class="p">(</span><span class="nx">sound</span><span class="p">:</span> <span class="nx">Sound</span><span class="p">):</span> <span class="kc">undefined</span><span class="p">;</span>
+</code></pre>
+<p>Loads the audio file at given path, and returns a handle for a <code>Sound</code> resource
+if successful. Otherwise, a <code>nullptr</code> is returned. <code>load_sound</code> will load the
+whole file into memory, while <code>load_stream</code> will only open the file and stream
+the data as the file is played.</p>
+
+<p>To release an audio resource, call <code>release</code> with the handle.</p>
+<h2 id='playback'>Playback</h2><pre class="highlight cpp tab-cpp"><code><span class="kt">bool</span>      <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">is_paused</span>   <span class="p">(</span><span class="n">Channel</span><span class="o">*</span><span class="p">);</span>
+<span class="kt">bool</span>      <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">is_playing</span>  <span class="p">(</span><span class="n">Channel</span><span class="o">*</span><span class="p">);</span>
+<span class="kt">void</span>      <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">pause</span>       <span class="p">(</span><span class="n">Channel</span><span class="o">*</span><span class="p">);</span>
+<span class="n">Channel</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">play</span>        <span class="p">(</span><span class="n">Channel</span><span class="o">*</span><span class="p">);</span>
+<span class="n">Channel</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">play</span>        <span class="p">(</span><span class="n">Sound</span><span class="o">*</span><span class="p">,</span> <span class="n">Vec2f</span> <span class="n">world_position</span> <span class="o">=</span> <span class="n">Vec2f</span><span class="o">::</span><span class="n">Zero</span><span class="p">);</span>
+<span class="kt">void</span>      <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">stop</span>        <span class="p">(</span><span class="n">Channel</span><span class="o">*</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">isPaused</span><span class="p">(</span><span class="nx">channel</span><span class="p">:</span> <span class="nx">Channel</span><span class="p">):</span> <span class="kr">boolean</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">isPlaying</span><span class="p">(</span><span class="nx">channel</span><span class="p">:</span> <span class="nx">Channel</span><span class="p">):</span> <span class="kr">boolean</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">pause</span><span class="p">(</span><span class="nx">channel</span><span class="p">:</span> <span class="nx">Channel</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="nx">audial</span><span class="p">:</span> <span class="nx">Channel</span> <span class="o">|</span> <span class="nx">Sound</span><span class="p">):</span> <span class="nx">Channel</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">stop</span><span class="p">(</span><span class="nx">channel</span><span class="p">:</span> <span class="nx">Channel</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>Once a <code>Sound</code> resource is obtained, it can be played by calling <code>play</code>. This,
+in turn, will return a <code>Channel</code> handle that can be used to pause/resume/stop
+the playback. The handle cannot be used to restart playback if it&#39;s stopped.
+<strong>Once playback stops, the handle becomes invalid</strong>, and is returned to the pool
+to be reused by subsequent calls to <code>play(Sound*, ...)</code>.</p>
+<h2 id='configuration'>Configuration</h2><pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">set_loop_count</span>      <span class="p">(</span><span class="n">Channel</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">);</span>
+<span class="kt">void</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">set_volume</span>          <span class="p">(</span><span class="n">Channel</span><span class="o">*</span><span class="p">,</span> <span class="kt">float</span> <span class="n">volume</span><span class="p">);</span>
+<span class="kt">void</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">audio</span><span class="o">::</span><span class="n">set_world_position</span>  <span class="p">(</span><span class="n">Channel</span><span class="o">*</span><span class="p">,</span> <span class="n">Vec2f</span> <span class="n">position</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">setLoopCount</span><span class="p">(</span><span class="nx">channel</span><span class="p">:</span> <span class="nx">Channel</span><span class="p">,</span> <span class="nx">count</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">setVolume</span><span class="p">(</span><span class="nx">channel</span><span class="p">:</span> <span class="nx">Channel</span><span class="p">,</span> <span class="nx">volume</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">setWorldPosition</span><span class="p">(</span><span class="nx">channel</span><span class="p">:</span> <span class="nx">Channel</span><span class="p">,</span> <span class="nx">position</span><span class="p">:</span> <span class="p">{</span> <span class="nl">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">number</span> <span class="p">}):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>A currently playing channel can be further configured. Currently, you can set
+the number of times it should loop, its volume, and world position.</p>
+<h2 id='caveats-and-known-limitations'>Caveats and Known Limitations</h2>
+<p>Audio channel handles are reused. This implies that an old handle may be used to
+manipulate a more recent playback.</p>
+<h1 id='input'>Input</h1>
+<p>The input manager listens to hardware input triggered by a user and fires the
+appropriate events to all subscribed listeners. Such events may include key
+presses, mouse clicks and movements, and controller button presses.</p>
+
+<p>Classes must inherit <code>InputListener</code> to be eligible for input event
+subscription. Additionally, one or more event delegates may optionally be
+implemented. These will be detailed later.</p>
+
+<p>Input listeners are chained together and receive events in order of
+subscription. Delegates may return <code>true</code> if an event shouldn&#39;t travel further
+down the chain. By default, <code>false</code> is returned so that events reach all
+subscribers.</p>
+
+<p>Note that we do not differentiate mouse and touch events. Both are considered
+pointer events.</p>
+<h2 id='input-management-c-only'>Input Management (C++ only)</h2>
+<p>The input manager is only accessible from the entry point but you can store a
+pointer and pass it around. The pointer is guaranteed to be valid throughout the
+lifetime of your main class.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span> <span class="n">MyGame</span><span class="o">::</span><span class="n">init_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec2i</span><span class="o">&amp;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Input</span><span class="o">*</span> <span class="n">input_manager</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">();</span>
+    <span class="p">[</span><span class="err">…</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="nx">local</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">rainbow</span><span class="p">.</span><span class="nx">input</span>
+</code></pre><h3 id='subscribing'>Subscribing</h3><pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>  <span class="n">Input</span><span class="o">::</span><span class="n">subscribe</span>    <span class="p">(</span><span class="n">InputListener</span><span class="o">&amp;</span> <span class="n">listener</span><span class="p">);</span>
+<span class="kt">void</span>  <span class="n">Input</span><span class="o">::</span><span class="n">unsubscribe</span>  <span class="p">(</span><span class="n">InputListener</span><span class="o">&amp;</span> <span class="n">listener</span><span class="p">);</span>
+</code></pre>
+<p>Subscribes/unsubscribes <code>listener</code> to input events. A listener will always be
+added to the end of the chain, regardless if it was previously subscribed. A
+deleted listener will automatically unsubscribe itself.</p>
+<h3 id='handling-key-events'>Handling Key Events</h3>
+<p>Key events come in two flavours, one for when a key is pushed down and one for
+when it is released. Listeners may implement any of the following methods to
+receive key events.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">bool</span>  <span class="n">InputListener</span><span class="o">::</span><span class="n">on_key_down_impl</span>  <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+<span class="kt">bool</span>  <span class="n">InputListener</span><span class="o">::</span><span class="n">on_key_up_impl</span>    <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+</code></pre>
+<p>The key value of the event is passed as argument and, if available, its
+modifiers (e.g. <code>Ctrl</code>, <code>Alt</code>, or <code>⇧ Shift</code>). The <code>modifier</code> property is a
+bitmask so you easily can check for multiple states. For instance, to check
+whether both <code>Ctrl</code> and <code>⇧ Shift</code> is pressed, perform a bitwise OR of the two
+buttons and check for equality:</p>
+<pre class="highlight cpp tab-cpp"><code><span class="k">if</span> <span class="p">(</span><span class="n">key</span><span class="p">.</span><span class="n">modifier</span> <span class="o">==</span> <span class="p">(</span><span class="n">Key</span><span class="o">::</span><span class="n">Mods</span><span class="o">::</span><span class="n">Shift</span> <span class="o">|</span> <span class="n">Key</span><span class="o">::</span><span class="n">Mods</span><span class="o">::</span><span class="n">Ctrl</span><span class="p">))</span>
+    <span class="n">LOGI</span><span class="p">(</span><span class="s">"Ctrl+Shift is currently pressed"</span><span class="p">);</span>
+</code></pre><h3 id='handling-mouse-touch-events'>Handling Mouse/Touch Events</h3>
+<p>Implement any of the following methods to receive mouse/touch events.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">bool</span>  <span class="n">InputListener</span><span class="o">::</span><span class="n">on_pointer_began_impl</span>     <span class="p">(</span><span class="k">const</span> <span class="n">ArrayView</span><span class="o">&lt;</span><span class="n">Pointer</span><span class="o">&gt;&amp;</span> <span class="n">pointers</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+<span class="kt">bool</span>  <span class="n">InputListener</span><span class="o">::</span><span class="n">on_pointer_canceled_impl</span>  <span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+<span class="kt">bool</span>  <span class="n">InputListener</span><span class="o">::</span><span class="n">on_pointer_ended_impl</span>     <span class="p">(</span><span class="k">const</span> <span class="n">ArrayView</span><span class="o">&lt;</span><span class="n">Pointer</span><span class="o">&gt;&amp;</span> <span class="n">pointers</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+<span class="kt">bool</span>  <span class="n">InputListener</span><span class="o">::</span><span class="n">on_pointer_moved_impl</span>     <span class="p">(</span><span class="k">const</span> <span class="n">ArrayView</span><span class="o">&lt;</span><span class="n">Pointer</span><span class="o">&gt;&amp;</span> <span class="n">pointers</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+</code></pre>
+<p>A <code>Pointer</code> instance stores the location of the event, <code>x</code> and <code>y</code>, and the
+timestamp, <code>timestamp</code>, at which the event occurred. Its <code>hash</code> value uniquely
+identifies a touch, or mouse button, for the duration of it touching the screen,
+or mouse button being held.</p>
+
+<p>The coordinate space origin is at the lower left corner, same as world space.</p>
+<h2 id='example'>Example</h2>
+<p>In this example, we implement keyboard and mouse delegates. We subscribe to
+input events in <code>init_impl()</code>, and unsubscribe in the main class&#39; destructor.
+While this example is running, we type &quot;rainbow&quot; and click on the mouse at two
+random places on the screen. Finally, we close the window using the keyboard
+shortcut Ctrl+Q/⌘Q.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="cp">#include "Input/Pointer.h"
+#include "Input/VirtualKey.h"
+#include "Script/GameBase.h"
+</span>
+<span class="k">class</span> <span class="nc">InputHandler</span> <span class="k">final</span> <span class="o">:</span> <span class="k">public</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">InputListener</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">on_key_down_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">KeyStroke</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">)</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="n">LOGI</span><span class="p">(</span><span class="s">"Pressed a key: %c"</span><span class="p">,</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">to_keycode</span><span class="p">(</span><span class="n">k</span><span class="p">.</span><span class="n">key</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">on_pointer_began_impl</span><span class="p">(</span>
+        <span class="k">const</span> <span class="n">ArrayView</span><span class="o">&lt;</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Pointer</span><span class="o">&gt;&amp;</span> <span class="n">pointers</span><span class="p">)</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">p</span> <span class="o">:</span> <span class="n">pointers</span><span class="p">)</span>
+            <span class="n">LOGI</span><span class="p">(</span><span class="s">"Pressed mouse button %u at %i,%i"</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">hash</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">InputExample</span> <span class="k">final</span> <span class="o">:</span> <span class="k">public</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span> <span class="o">:</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="p">(</span><span class="n">director</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="o">~</span><span class="n">InputExample</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// The following line is strictly unnecessary as |input_handler_| will
+</span>        <span class="c1">// automatically unsubscribe itself on destruction.
+</span>        <span class="n">input</span><span class="p">().</span><span class="n">unsubscribe</span><span class="p">(</span><span class="n">input_handler_</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">InputHandler</span> <span class="n">input_handler_</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="n">init_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">Vec2i</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="n">input</span><span class="p">().</span><span class="n">subscribe</span><span class="p">(</span><span class="n">input_handler_</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">InputExample</span><span class="o">&gt;</span><span class="p">(</span><span class="n">director</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>Output:</p>
+<pre class="highlight shell_session"><code>[1428763097479|INFO] Pressed a key: r
+[1428763097523|INFO] Pressed a key: a
+[1428763097574|INFO] Pressed a key: i
+[1428763097624|INFO] Pressed a key: n
+[1428763097691|INFO] Pressed a key: b
+[1428763097757|INFO] Pressed a key: o
+[1428763097874|INFO] Pressed a key: w
+[1428763099291|INFO] Pressed mouse button 1 at 1730,978
+[1428763100741|INFO] Pressed mouse button 1 at 872,686
+[1428763101291|INFO] Pressed a key: 5
+[1428763101461|INFO] Pressed a key: q
+</code></pre><h1 id='sprite-sheet-animations'>Sprite Sheet Animations</h1>
+<p>A sprite sheet animation is a frame-based animation (like traditional animation)
+where we take a sprite and change its texture at set interval.</p>
+<h2 id='animation-management'>Animation Management</h2><h3 id='creating-sprite-sheet-animations'>Creating Sprite Sheet Animations</h3><pre class="highlight cpp tab-cpp"><code><span class="n">Animation</span><span class="p">(</span><span class="k">const</span> <span class="n">SpriteRef</span> <span class="o">&amp;</span><span class="n">sprite</span><span class="p">,</span>
+          <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Frame</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">frames</span><span class="p">,</span>
+          <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">fps</span><span class="p">,</span>
+          <span class="kt">int</span> <span class="n">delay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Animation</span><span class="p">(</span><span class="nx">sprite</span><span class="p">:</span> <span class="nx">Sprite</span><span class="p">,</span> <span class="nx">frames</span><span class="p">:</span> <span class="kr">number</span><span class="p">[],</span> <span class="nx">fps</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">delay</span><span class="p">:</span> <span class="kr">number</span><span class="p">);</span>
+</code></pre>
+<p><code>frames</code> is an array of texture ids that are played back in succession. In C++,
+the array must be terminated with <code>Animation::Frame::end()</code>. The playback rate
+is determined by frames per second, or <code>fps</code>.</p>
+
+<p>By default, an animation always loops without any delays between each cycle.
+Setting <code>delay</code> to anything greater than 0, will introduce delays, measured in
+frames. For instance, setting <code>fps</code> to 30 and <code>delay</code> to 2, will make the
+animation wait 66⅔ ms before playing the next cycle. A negative <code>delay</code> disables
+looping.</p>
+
+<p>Before an animation can be played, it must also be added to the render queue.
+Batches of animations can be created and assigned a sprite at a later point in
+time.</p>
+<h3 id='starting-and-stopping-animations'>Starting and Stopping Animations</h3><pre class="highlight cpp tab-cpp"><code><span class="kt">bool</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">is_stopped</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="kt">void</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">start</span>       <span class="p">();</span>
+<span class="kt">void</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">stop</span>        <span class="p">();</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">start</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">stop</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>An animation will always start from the beginning. There is no pause function
+because animations live in the render queue and can therefore be paused by
+disabling its render unit.</p>
+<h3 id='navigating-the-animation'>Navigating the Animation</h3><pre class="highlight cpp tab-cpp"><code><span class="kt">unsigned</span> <span class="kt">int</span>  <span class="n">current_frame</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">currentFrame</span><span class="p">():</span> <span class="kr">number</span><span class="p">;</span>
+</code></pre>
+<p>Returns the currently displayed frame; <code>Animation::Frame::end()</code> (-1) if none.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">unsigned</span> <span class="kt">int</span>  <span class="n">frame_rate</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">frameRate</span><span class="p">():</span> <span class="kr">number</span><span class="p">;</span>
+</code></pre>
+<p>Returns the frame rate in frames per second.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">jump_to</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">frame</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">jumpTo</span><span class="p">(</span><span class="nx">frame</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>Jumps to the specified frame.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">rewind</span>  <span class="p">();</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">rewind</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>Rewinds the animation. Equivalent to <code>jump_to(0)</code>.</p>
+<h3 id='modifying-the-animation-sequence'>Modifying the Animation Sequence</h3><pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">set_delay</span>  <span class="p">(</span><span class="kt">int</span> <span class="n">delay</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">setDelay</span><span class="p">(</span><span class="nx">delay</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>Sets number of frames to delay before the animation loops. Negative numbers
+disable looping.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">set_frame_rate</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">fps</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">setFrameRate</span><span class="p">(</span><span class="nx">fps</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>Sets the frame rate in frames per second.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">set_frames</span>  <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Frame</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">frames</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">setFrames</span><span class="p">(</span><span class="nx">frames</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>Sets new frames to be played.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="k">const</span> <span class="n">Frame</span><span class="o">*</span>  <span class="n">release</span>  <span class="p">();</span>
+</code></pre>
+<p>Releases ownership of animation frames and returns it.</p>
+<h3 id='changing-sprite-to-animate'>Changing Sprite To Animate</h3><pre class="highlight cpp tab-cpp"><code><span class="n">SpriteRef</span>  <span class="n">sprite</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns the target sprite.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>  <span class="n">Animation</span><span class="o">::</span><span class="n">set_sprite</span>  <span class="p">(</span><span class="k">const</span> <span class="n">SpriteRef</span> <span class="o">&amp;</span><span class="n">sprite</span><span class="p">);</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">setSprite</span><span class="p">(</span><span class="nx">sprite</span><span class="p">:</span> <span class="nx">Sprite</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre>
+<p>Sets the sprite to animate.</p>
+<h2 id='animation-callback-events'>Animation Callback Events</h2>
+<p>There are three events that are fired during an animation&#39;s lifetime.</p>
+
+<ul>
+<li><code>AnimationEvent::Start</code> fires when a stopped animation is started.</li>
+<li><code>AnimationEvent::End</code> fires when an animation is stopped.</li>
+<li><code>AnimationEvent::Complete</code> fires immediately after an animation completes a
+single cycle, before the delay preceding the next.</li>
+<li><code>AnimationEvent::Frame</code> fires for each frame that does not trigger <code>End</code> or
+<code>Complete</code> events.</li>
+</ul>
+
+<p>You can subscribe to these events using:</p>
+<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span>   <span class="n">Animation</span><span class="o">::</span><span class="n">set_callback</span>  <span class="p">(</span><span class="n">Animation</span><span class="o">::</span><span class="n">Callback</span> <span class="n">f</span><span class="p">);</span>
+
+<span class="c1">// Where `Animation::Callback` is a callable whose signature is
+// `void(Animation *animation, AnimationEvent event)`, and `animation` is the
+// animation object that triggered `event`.
+</span></code></pre><pre class="highlight typescript tab-typescript"><code><span class="kd">function</span> <span class="nx">setCallback</span><span class="p">(</span><span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">animation</span><span class="p">:</span> <span class="nx">Animation</span><span class="p">,</span> <span class="nx">event</span><span class="p">:</span> <span class="nx">AnimationEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="c1">// Example:</span>
+
+<span class="p">(</span><span class="nx">animation</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">AnimationEvent</span><span class="p">.</span><span class="na">Start</span><span class="p">:</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"&gt; Animation has started"</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">AnimationEvent</span><span class="p">.</span><span class="na">End</span><span class="p">:</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"&gt; Animation has ended"</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">AnimationEvent</span><span class="p">.</span><span class="na">Complete</span><span class="p">:</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"&gt; Animation has completed"</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">AnimationEvent</span><span class="p">.</span><span class="na">Frame</span><span class="p">:</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"&gt; Animation is displaying frame"</span><span class="p">,</span> <span class="nx">animation</span><span class="p">.</span><span class="nx">currentFrame</span><span class="p">());</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><h2 id='example'>Example</h2>
+<p>In this example, we set up a walking animation.</p>
+<pre class="highlight cpp tab-cpp"><code><span class="cp">#include "FileSystem/FileSystem.h"
+#include "Graphics/Animation.h"
+#include "Script/GameBase.h"
+</span>
+<span class="k">namespace</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">kTextureRegions</span><span class="p">[]{</span>
+        <span class="mi">400</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span>
+        <span class="mi">504</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span>
+        <span class="mi">608</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span>
+        <span class="mi">712</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span>
+        <span class="mi">816</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span>
+        <span class="mi">920</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">};</span>
+
+    <span class="n">rainbow</span><span class="o">::</span><span class="n">Animation</span><span class="o">::</span><span class="n">Frame</span> <span class="n">kAnimationFrames</span><span class="p">[]{</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">Animation</span><span class="o">::</span><span class="n">Frame</span><span class="o">::</span><span class="n">end</span><span class="p">()};</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="n">load_texture</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">auto</span> <span class="n">texture_path</span> <span class="o">=</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">filesystem</span><span class="o">::</span><span class="n">relative</span><span class="p">(</span><span class="s">"monkey.png"</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">texture</span> <span class="o">=</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">rainbow</span><span class="o">::</span><span class="n">TextureAtlas</span><span class="o">&gt;</span><span class="p">(</span><span class="n">texture_path</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+    <span class="n">texture</span><span class="o">-&gt;</span><span class="n">set_regions</span><span class="p">(</span><span class="n">kTextureRegions</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">texture</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">animation_event_handler</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Animation</span><span class="o">*</span><span class="p">,</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">AnimationEvent</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="n">rainbow</span><span class="p">:</span><span class="o">:</span><span class="n">AnimationEvent</span><span class="o">::</span><span class="n">Start</span><span class="o">:</span>
+            <span class="c1">// Handle animation start here.
+</span>            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">rainbow</span><span class="p">:</span><span class="o">:</span><span class="n">AnimationEvent</span><span class="o">::</span><span class="n">End</span><span class="o">:</span>
+            <span class="c1">// Handle animation end here.
+</span>            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">rainbow</span><span class="p">:</span><span class="o">:</span><span class="n">AnimationEvent</span><span class="o">::</span><span class="n">Complete</span><span class="o">:</span>
+            <span class="c1">// Handle animation cycle complete here.
+</span>            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">rainbow</span><span class="p">:</span><span class="o">:</span><span class="n">AnimationEvent</span><span class="o">::</span><span class="n">Frame</span><span class="o">:</span>
+            <span class="c1">// Handle animation frame update here.
+</span>            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">AnimationExample</span> <span class="k">final</span> <span class="o">:</span> <span class="k">public</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">AnimationExample</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="p">(</span><span class="n">director</span><span class="p">),</span> <span class="n">batch_</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+          <span class="n">animation_</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">SpriteRef</span><span class="p">{},</span>
+                     <span class="n">rainbow</span><span class="o">::</span><span class="n">Animation</span><span class="o">::</span><span class="n">Frames</span><span class="p">(</span><span class="n">kAnimationFrames</span><span class="p">),</span>
+                     <span class="mi">6</span><span class="p">,</span>
+                     <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">AnimationExample</span><span class="p">()</span> <span class="p">{</span> <span class="n">animation_</span><span class="p">.</span><span class="n">release</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">rainbow</span><span class="o">::</span><span class="n">SpriteBatch</span> <span class="n">batch_</span><span class="p">;</span>
+    <span class="n">rainbow</span><span class="o">::</span><span class="n">Animation</span> <span class="n">animation_</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="n">init_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">Vec2i</span><span class="o">&amp;</span> <span class="n">screen</span><span class="p">)</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="n">rainbow</span><span class="o">::</span><span class="n">graphics</span><span class="o">::</span><span class="n">TextureManager</span><span class="o">::</span><span class="n">Get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_filter</span><span class="p">(</span>
+            <span class="n">rainbow</span><span class="o">::</span><span class="n">graphics</span><span class="o">::</span><span class="n">TextureFilter</span><span class="o">::</span><span class="n">Nearest</span><span class="p">);</span>
+
+        <span class="k">auto</span> <span class="n">texture</span> <span class="o">=</span> <span class="n">load_texture</span><span class="p">();</span>
+        <span class="n">batch_</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">texture</span><span class="p">);</span>
+
+        <span class="k">auto</span> <span class="n">sprite</span> <span class="o">=</span> <span class="n">batch_</span><span class="p">.</span><span class="n">create_sprite</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">);</span>
+        <span class="n">sprite</span><span class="o">-&gt;</span><span class="n">set_position</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Vec2f</span><span class="p">(</span><span class="n">screen</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span> <span class="mf">0.5</span><span class="n">f</span><span class="p">,</span> <span class="n">screen</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="mf">0.5</span><span class="n">f</span><span class="p">));</span>
+
+        <span class="n">animation_</span><span class="p">.</span><span class="n">set_sprite</span><span class="p">(</span><span class="n">sprite</span><span class="p">);</span>
+        <span class="n">animation_</span><span class="p">.</span><span class="n">set_callback</span><span class="p">(</span><span class="o">&amp;</span><span class="n">animation_event_handler</span><span class="p">);</span>
+
+        <span class="n">render_queue</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">batch_</span><span class="p">);</span>
+        <span class="n">render_queue</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">animation_</span><span class="p">);</span>
+
+        <span class="n">animation_</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">AnimationExample</span><span class="o">&gt;</span><span class="p">(</span><span class="n">director</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight typescript tab-typescript"><code><span class="c1">/// &lt;reference path="./index.d.ts" /&gt;</span>
+
+<span class="kr">interface</span> <span class="nx">World</span> <span class="p">{</span>
+  <span class="nl">screen</span><span class="p">:</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span> <span class="nl">height</span><span class="p">:</span> <span class="kr">number</span> <span class="p">};</span>
+  <span class="nl">batch</span><span class="p">:</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">SpriteBatch</span><span class="p">;</span>
+  <span class="nl">animation</span><span class="p">:</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Animation</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">world</span><span class="p">:</span> <span class="nx">World</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">init</span><span class="p">(</span><span class="nx">width</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">height</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">texture</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Texture</span><span class="p">(</span><span class="s2">"monkey.png"</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">walkingFrames</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nx">texture</span><span class="p">.</span><span class="nx">addRegion</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">);</span>
+    <span class="nx">texture</span><span class="p">.</span><span class="nx">addRegion</span><span class="p">(</span><span class="mi">504</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">);</span>
+    <span class="nx">texture</span><span class="p">.</span><span class="nx">addRegion</span><span class="p">(</span><span class="mi">608</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">);</span>
+    <span class="nx">texture</span><span class="p">.</span><span class="nx">addRegion</span><span class="p">(</span><span class="mi">712</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">);</span>
+    <span class="nx">texture</span><span class="p">.</span><span class="nx">addRegion</span><span class="p">(</span><span class="mi">816</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">);</span>
+    <span class="nx">texture</span><span class="p">.</span><span class="nx">addRegion</span><span class="p">(</span><span class="mi">920</span><span class="p">,</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">);</span>
+  <span class="p">];</span>
+
+  <span class="kd">const</span> <span class="nx">batch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">SpriteBatch</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">batch</span><span class="p">.</span><span class="nx">setTexture</span><span class="p">(</span><span class="nx">texture</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">sprite</span> <span class="o">=</span> <span class="nx">batch</span><span class="p">.</span><span class="nx">createSprite</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">149</span><span class="p">);</span>
+  <span class="nx">sprite</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">({</span> <span class="na">x</span><span class="p">:</span> <span class="nx">width</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="nx">height</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="p">});</span>
+
+  <span class="kd">const</span> <span class="nx">animation</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">Animation</span><span class="p">(</span><span class="nx">sprite</span><span class="p">,</span> <span class="nx">walkingFrames</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="nx">animation</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+
+  <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">RenderQueue</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">batch</span><span class="p">);</span>
+  <span class="nx">Rainbow</span><span class="p">.</span><span class="nx">RenderQueue</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">animation</span><span class="p">);</span>
+
+  <span class="nx">world</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">screen</span><span class="p">:</span> <span class="p">{</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span> <span class="p">},</span>
+    <span class="nx">batch</span><span class="p">,</span>
+    <span class="nx">animation</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">update</span><span class="p">(</span><span class="nx">dt</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre>
+<p>Output:</p>
+
+<p><img src="images/sprite_sheet_animations_output.gif" alt="Walking animation" /></p>
+<h2 id='caveats-and-known-limitations'>Caveats and Known Limitations</h2>
+<p>Currently, an animation object takes ownership of the frames array and will
+attempt to delete it on destruction.</p>
+<h1 id='math-c-only'>Math (C++ only)</h1>
+<p>Small collection of common mathematical functions and convenient algorithms. All
+of these functions are available under namespace <code>rainbow</code> unless otherwise
+stated.</p>
+<h2 id='power-of-2'>Power of 2</h2><pre class="highlight cpp"><code><span class="kt">unsigned</span> <span class="kt">int</span>  <span class="n">ceil_pow2</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+</code></pre>
+<p>Rounds <code>i</code> up to the nearest power of 2.</p>
+
+<aside class="notice">0 is incorrectly considered a power of 2.</aside>
+<pre class="highlight cpp"><code><span class="kt">unsigned</span> <span class="kt">int</span>  <span class="n">floor_pow2</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+</code></pre>
+<p>Rounds <code>i</code> down to the nearest power of 2.</p>
+<pre class="highlight cpp"><code><span class="kt">bool</span>  <span class="n">is_pow2</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+</code></pre>
+<p>Returns whether integer <code>i</code> is a power of 2.</p>
+<h2 id='trigonometry'>Trigonometry</h2><pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span> <span class="n">FloatingPoint</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="n">T</span>  <span class="n">degrees</span>  <span class="p">(</span><span class="n">T</span> <span class="n">r</span><span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span> <span class="n">FloatingPoint</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="n">T</span>  <span class="n">radian</span>   <span class="p">(</span><span class="n">T</span> <span class="n">d</span><span class="p">);</span>
+</code></pre>
+<p>Converts values between degrees and radians.</p>
+<h2 id='vec2'>Vec2</h2>
+<p><code>Vec2</code> is a two-dimensional vector template whose value type must be arithmetic.
+There are currently three predefined <code>Vec2</code> types in the global namespace.</p>
+<pre class="highlight cpp"><code><span class="k">using</span> <span class="n">Vec2f</span> <span class="o">=</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">Vec2i</span> <span class="o">=</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">Vec2u</span> <span class="o">=</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre><h3 id='constants'>Constants</h3><pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">const</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Down</span><span class="p">;</span>
+</code></pre>
+<p>Vector representing down; shorthand for <code>Vec2&lt;T&gt;(0, -1)</code>.</p>
+<pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">const</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Left</span><span class="p">;</span>
+</code></pre>
+<p>Vector representing left; shorthand for <code>Vec2&lt;T&gt;(-1, 0)</code>.</p>
+<pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">const</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">One</span><span class="p">;</span>
+</code></pre>
+<p>One vector; shorthand for <code>Vec2&lt;T&gt;(1, 1)</code>.</p>
+<pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">const</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Right</span><span class="p">;</span>
+</code></pre>
+<p>Vector representing right; shorthand for <code>Vec2&lt;T&gt;(1, 0)</code>.</p>
+<pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">const</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Up</span><span class="p">;</span>
+</code></pre>
+<p>Vector representing up; shorthand for <code>Vec2&lt;T&gt;(0, 1)</code>.</p>
+<pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">const</span> <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Zero</span><span class="p">;</span>
+</code></pre>
+<p>Zero vector; shorthand for <code>Vec2&lt;T&gt;(0, 0)</code>.</p>
+<h3 id='methods'>Methods</h3><pre class="highlight cpp"><code><span class="kt">float</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">angle</span>  <span class="p">(</span><span class="k">const</span> <span class="n">Vec2</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns the angle (in radians) between two points.</p>
+<pre class="highlight cpp"><code><span class="kt">float</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">distance</span>  <span class="p">(</span><span class="k">const</span> <span class="n">Vec2</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns the distance between two points.</p>
+<pre class="highlight cpp"><code><span class="kt">float</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">distance_sq</span>  <span class="p">(</span><span class="k">const</span> <span class="n">Vec2</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns the distance between two points, squared. This method skips the square
+root step performed in <code>distance()</code> and is therefore preferred unless you need
+the exact distance.</p>
+<pre class="highlight cpp"><code><span class="kt">bool</span>  <span class="n">Vec2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">is_zero</span><span class="p">()</span>  <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns whether both vector components are zero.</p>
+<h3 id='operators'>Operators</h3>
+<p>Assuming <code>v</code> and <code>w</code> are instances of <code>Vec2f</code>, Rainbow implements the following
+operators:</p>
+<h4 id='vector-negation'>Vector Negation</h4><pre class="highlight cpp"><code><span class="n">Vec2f</span> <span class="n">w</span> <span class="o">=</span> <span class="o">-</span><span class="n">v</span><span class="p">;</span>
+</code></pre>
+<p>Equivalent to <code>w = Vec2f(-v.x, -v.y)</code>.</p>
+<h4 id='vector-sum'>Vector Sum</h4><pre class="highlight cpp"><code><span class="n">Vec2f</span> <span class="n">u</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">w</span><span class="p">;</span>
+<span class="n">v</span> <span class="o">+=</span> <span class="n">w</span><span class="p">;</span>
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(v.x + w.x, v.y + w.y)</code>.</p>
+<h4 id='vector-difference'>Vector Difference</h4><pre class="highlight cpp"><code><span class="n">Vec2f</span> <span class="n">u</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">w</span><span class="p">;</span>
+<span class="n">v</span> <span class="o">-=</span> <span class="n">w</span><span class="p">;</span>
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(v.x - w.x, v.y - w.y)</code>.</p>
+<h4 id='dot-product'>Dot Product</h4><pre class="highlight cpp"><code><span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="n">w</span><span class="p">;</span>
+</code></pre>
+<p>Equivalent to <code>f = v.x * w.x + v.y * w.y</code>.</p>
+<h4 id='scalar-multiplication'>Scalar Multiplication</h4><pre class="highlight cpp"><code><span class="n">Vec2f</span> <span class="n">u</span> <span class="o">=</span> <span class="mf">2.0</span><span class="n">f</span> <span class="o">*</span> <span class="n">v</span><span class="p">;</span>
+<span class="n">v</span> <span class="o">*=</span> <span class="mf">2.0</span><span class="n">f</span><span class="p">;</span>
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(2.0f * v.x, 2.0f * v.y)</code>.</p>
+<h4 id='scalar-division'>Scalar Division</h4><pre class="highlight cpp"><code><span class="n">Vec2f</span> <span class="n">u</span> <span class="o">=</span> <span class="n">v</span> <span class="o">/</span> <span class="mf">2.0</span><span class="n">f</span><span class="p">;</span>
+<span class="n">v</span> <span class="o">/=</span> <span class="mf">2.0</span><span class="n">f</span><span class="p">;</span>
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(v.x / 2.0f, v.y / 2.0f)</code>.</p>
+<h4 id='scalar-addition-subtraction'>Scalar Addition/Subtraction</h4><pre class="highlight cpp"><code><span class="n">Vec2f</span> <span class="n">u</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="mf">5.0</span><span class="n">f</span><span class="p">;</span>
+<span class="n">Vec2f</span> <span class="n">w</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="mf">5.0</span><span class="n">f</span><span class="p">;</span>
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(v.x + 5.0f, v.y + 5.0f)</code>.</p>
+<h4 id='comparison'>Comparison</h4><pre class="highlight cpp"><code><span class="kt">bool</span> <span class="n">equal</span> <span class="o">=</span> <span class="n">v</span> <span class="o">==</span> <span class="n">w</span><span class="p">;</span>
+</code></pre>
+<p>Equivalent to <code>v.x == w.x &amp;&amp; v.y == w.y</code>.</p>
+<h2 id='miscellaneous'>Miscellaneous</h2><pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span> <span class="n">FloatingPoint</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="kt">bool</span>  <span class="n">are_equal</span>  <span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">);</span>
+</code></pre>
+<p>Returns whether two floating point numbers are (almost) equal. Based on the
+<code>AlmostEqualRelative()</code> implementation from a <a href="https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/" title="Comparing Floating Point Numbers, 2012 Edition">Random ASCII blog post</a>.</p>
+<pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span>  <span class="n">clamp</span>  <span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">T</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">T</span> <span class="n">max_val</span><span class="p">);</span>
+</code></pre>
+<p>Returns the restricted value of <code>x</code> clamped in the range [<code>min_val</code>, <code>max_val</code>].</p>
+<pre class="highlight cpp"><code><span class="kt">float</span>  <span class="n">fast_invsqrt</span>  <span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">);</span>
+</code></pre>
+<p>Returns an approximation of 1/√x using the infamous constant 0x5f3759df.</p>
+<pre class="highlight cpp"><code><span class="kt">bool</span>  <span class="n">is_almost_zero</span>  <span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">);</span>
+</code></pre>
+<p>Returns whether <code>x</code> is practically zero. A number is considered almost zero if
+it&#39;s within <code>10 * ε</code>. On some hardware, this is 0.0000011920929.</p>
+<h1 id='timers-c-only'>Timers (C++ only)</h1>
+<p>Timers perform delayed actions or repeat actions at set intervals.</p>
+<h2 id='timer-management'>Timer Management</h2>
+<p>Timers are managed by a global <code>TimerManager</code>. Any void returning callable can
+be used to create a timer. Timers may safely be created and cleared by timer
+callbacks. Additionally, timers may clear themselves on callback without causing
+error.</p>
+
+<p>To access the timer manager, use the static <code>Get()</code> method:</p>
+<pre class="highlight cpp"><code><span class="n">TimerManager</span><span class="o">*</span> <span class="n">timer_manager</span> <span class="o">=</span> <span class="n">TimerManager</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+</code></pre><h3 id='creating-and-clearing-timers'>Creating and Clearing Timers</h3><pre class="highlight cpp"><code><span class="n">Timer</span><span class="o">*</span>  <span class="n">TimerManager</span><span class="o">::</span><span class="n">set_timer</span>    <span class="p">(</span><span class="n">Timer</span><span class="o">::</span><span class="n">Closure</span> <span class="n">func</span><span class="p">,</span>
+                                    <span class="k">const</span> <span class="kt">int</span> <span class="n">interval</span><span class="p">,</span>
+                                    <span class="k">const</span> <span class="kt">int</span> <span class="n">repeat_count</span><span class="p">);</span>
+  <span class="kt">void</span>  <span class="n">TimerManager</span><span class="o">::</span><span class="n">clear_timer</span>  <span class="p">(</span><span class="n">Timer</span><span class="o">*</span> <span class="n">t</span><span class="p">);</span>
+</code></pre>
+<p><code>Timer::Closure</code> is defined as a callable whose signature is <code>void()</code>. The
+<code>interval</code> is the time, in milliseconds, to wait before the first call and
+between any subsequent calls. A 0 interval will immediately set the timer in a
+finished state. Calls are <em>repeated</em> <code>repeat_count</code> times, e.g. a repeat count
+of 4 makes the timer perform an action 5 times. For infinity, use any negative
+value. <code>TimerManager::set_timer()</code> returns a <code>Timer</code> object which can be used to
+pause and resume the timer, as well as querying information.</p>
+<h3 id='pausing-and-resuming-timers'>Pausing and Resuming Timers</h3><pre class="highlight cpp"><code><span class="kt">void</span>  <span class="n">Timer</span><span class="o">::</span><span class="n">pause</span>   <span class="p">();</span>
+<span class="kt">void</span>  <span class="n">Timer</span><span class="o">::</span><span class="n">resume</span>  <span class="p">();</span>
+</code></pre>
+<p>Pausing a timer will freeze it in its current state until it is resumed.</p>
+<h3 id='timer-information'>Timer Information</h3><pre class="highlight cpp"><code><span class="kt">bool</span>  <span class="n">Timer</span><span class="o">::</span><span class="n">is_active</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns whether the timer is currently active. This method returns <code>true</code> while
+the timer is running normally, and <code>false</code> when it is finished or has been
+paused.</p>
+<pre class="highlight cpp"><code><span class="kt">int</span>  <span class="n">Timer</span><span class="o">::</span><span class="n">elapsed</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns the elapsed time.</p>
+<pre class="highlight cpp"><code><span class="kt">int</span>  <span class="n">Timer</span><span class="o">::</span><span class="n">interval</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns the timer&#39;s delay/interval in milliseconds.</p>
+<pre class="highlight cpp"><code><span class="kt">int</span>  <span class="n">Timer</span><span class="o">::</span><span class="n">repeat_count</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</code></pre>
+<p>Returns the number of times the action will be repeated. Note that this number
+excludes the first call.</p>
+<h2 id='example'>Example</h2>
+<p>The following example creates four timers. Two that are performed 5 times
+(repeated 4 times) with an interval of 500 ms, and two that are performed after
+a 500 ms delay. We use a freestanding function, a functor, a lambda function,
+and a bound member function to create them. For simplicity&#39;s sake, we only clear
+the first repeated timer.</p>
+<pre class="highlight cpp"><code><span class="cp">#include &lt;functional&gt;
+</span>
+<span class="cp">#include "Script/GameBase.h"
+#include "Script/Timer.h"
+</span>
+<span class="kt">void</span> <span class="nf">action</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">LOGI</span><span class="p">(</span><span class="s">"A freestanding function was called."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">RepeatableAction</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">action</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">LOGI</span><span class="p">(</span><span class="s">"A bound, repeated action was performed: %i time(s)"</span><span class="p">,</span> <span class="o">++</span><span class="n">counter_</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()()</span>
+    <span class="p">{</span>
+        <span class="n">LOGI</span><span class="p">(</span><span class="s">"A repeated action was performed: %i time(s)"</span><span class="p">,</span> <span class="o">++</span><span class="n">counter_</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">counter_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">TimerExample</span> <span class="k">final</span> <span class="o">:</span> <span class="k">public</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">TimerExample</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="p">(</span><span class="n">director</span><span class="p">),</span> <span class="n">repeated_</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span>  <span class="p">{}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">rainbow</span><span class="o">::</span><span class="n">Timer</span><span class="o">*</span> <span class="n">repeated_</span><span class="p">;</span>
+    <span class="n">RepeatableAction</span> <span class="n">action_</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="n">init_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">Vec2i</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="c1">// Create a delayed action using a function.
+</span>        <span class="n">rainbow</span><span class="o">::</span><span class="n">TimerManager</span><span class="o">::</span><span class="n">Get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_timer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="c1">// Create a repeated action using a functor.
+</span>        <span class="n">repeated_</span> <span class="o">=</span>
+            <span class="n">rainbow</span><span class="o">::</span><span class="n">TimerManager</span><span class="o">::</span><span class="n">Get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_timer</span><span class="p">(</span><span class="n">RepeatableAction</span><span class="p">{},</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+        <span class="c1">// Create a delayed action using a lambda function.
+</span>        <span class="n">rainbow</span><span class="o">::</span><span class="n">TimerManager</span><span class="o">::</span><span class="n">Get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_timer</span><span class="p">(</span>
+            <span class="p">[]</span> <span class="p">{</span> <span class="n">LOGI</span><span class="p">(</span><span class="s">"A delayed action was performed."</span><span class="p">);</span> <span class="p">},</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="c1">// Create a repeated action using a bound member function.
+</span>        <span class="n">rainbow</span><span class="o">::</span><span class="n">TimerManager</span><span class="o">::</span><span class="n">Get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_timer</span><span class="p">(</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">RepeatableAction</span><span class="o">::</span><span class="n">action</span><span class="p">,</span> <span class="n">action_</span><span class="p">),</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">update_impl</span><span class="p">(</span><span class="kt">uint64_t</span><span class="p">)</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">repeated_</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">repeated_</span><span class="o">-&gt;</span><span class="n">is_active</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">rainbow</span><span class="o">::</span><span class="n">TimerManager</span><span class="o">::</span><span class="n">Get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">clear_timer</span><span class="p">(</span><span class="n">repeated_</span><span class="p">);</span>
+            <span class="n">repeated_</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+            <span class="n">LOGI</span><span class="p">(</span><span class="s">"The repeated timer was cleared."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">TimerExample</span><span class="o">&gt;</span><span class="p">(</span><span class="n">director</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>Output:</p>
+<pre class="highlight shell_session"><code>[1428273728390|INFO] A freestanding function was called.
+[1428273728390|INFO] A repeated action was performed: 1 time(s)
+[1428273728390|INFO] A delayed action was performed.
+[1428273728390|INFO] A bound, repeated action was performed: 1 time(s)
+[1428273728847|INFO] A repeated action was performed: 2 time(s)
+[1428273728847|INFO] A bound, repeated action was performed: 2 time(s)
+[1428273729352|INFO] A repeated action was performed: 3 time(s)
+[1428273729352|INFO] A bound, repeated action was performed: 3 time(s)
+[1428273729863|INFO] A repeated action was performed: 4 time(s)
+[1428273729863|INFO] A bound, repeated action was performed: 4 time(s)
+[1428273730380|INFO] A repeated action was performed: 5 time(s)
+[1428273730380|INFO] A bound, repeated action was performed: 5 time(s)
+[1428273730380|INFO] The repeated timer was cleared.
+</code></pre><h2 id='caveats-and-known-limitations'>Caveats and Known Limitations</h2>
+<p>Timer handlers are reused. This implies that an old handler may be used to
+manipulate a more recent timer.</p>
+<h1 id='transitions-c-only'>Transitions (C++ only)</h1>
+<p>Transitions provide a simple way to animate properties of a sprite such as
+opacity or position.</p>
+<h2 id='functions'>Functions</h2>
+<p>Rainbow implements a set of transitions for any objects that implement the
+appropriate methods. Duration is specified in milliseconds.</p>
+<h3 id='definitions'>Definitions</h3>
+<p>Components must implement all listed methods for each requirement of a
+transition. Which definitions they must implement will be specified.</p>
+<h4 id='colourable'>Colourable</h4>
+<p>A colourable component must implement methods for getting and setting colour.</p>
+<pre class="highlight cpp"><code><span class="n">Color</span>  <span class="n">Colourable</span><span class="o">::</span><span class="n">color</span>      <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="kt">void</span>   <span class="n">Colourable</span><span class="o">::</span><span class="n">set_color</span>  <span class="p">(</span><span class="n">Color</span><span class="p">);</span>
+</code></pre><h4 id='rotatable'>Rotatable</h4>
+<p>A rotatable component must implement a method for rotating it relative to its
+current angle. The value passed is in radians.</p>
+<pre class="highlight cpp"><code><span class="kt">void</span>   <span class="n">Rotatable</span><span class="o">::</span><span class="n">rotate</span>  <span class="p">(</span><span class="kt">float</span><span class="p">);</span>
+</code></pre><h4 id='scalable'>Scalable</h4>
+<p>A scalable component must implement methods for getting and setting the
+component&#39;s current scale factors individually on each axis.</p>
+<pre class="highlight cpp"><code><span class="n">Vec2f</span>  <span class="n">Scalable</span><span class="o">::</span><span class="n">scale</span>      <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="kt">void</span>   <span class="n">Scalable</span><span class="o">::</span><span class="n">set_scale</span>  <span class="p">(</span><span class="n">Vec2f</span><span class="p">);</span>
+</code></pre><h4 id='translatable'>Translatable</h4>
+<p>A translatable component must implement a method for retrieving the component&#39;s
+current position, and one for moving it relatively to its current position.</p>
+<pre class="highlight cpp"><code><span class="n">Vec2f</span>  <span class="n">Translatable</span><span class="o">::</span><span class="n">position</span>  <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="kt">void</span>   <span class="n">Translatable</span><span class="o">::</span><span class="n">move</span>      <span class="p">(</span><span class="n">Vec2f</span><span class="p">);</span>
+</code></pre><h3 id='fade-transition'>Fade Transition</h3><pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">rainbow</span><span class="o">::</span><span class="n">Timer</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">fade</span>  <span class="p">(</span><span class="n">T</span> <span class="n">component</span><span class="p">,</span>
+                                 <span class="kt">int</span> <span class="n">opacity</span><span class="p">,</span>
+                                 <span class="kt">int</span> <span class="n">duration</span><span class="p">,</span>
+                                 <span class="n">TimingFunction</span> <span class="n">timing</span><span class="p">)</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">rainbow</span><span class="o">::</span><span class="n">Timer</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">fade</span>  <span class="p">(</span><span class="n">T</span> <span class="n">component</span><span class="p">,</span>
+                                 <span class="kt">float</span> <span class="n">opacity</span><span class="p">,</span>
+                                 <span class="kt">int</span> <span class="n">duration</span><span class="p">,</span>
+                                 <span class="n">TimingFunction</span> <span class="n">timing</span><span class="p">)</span>
+</code></pre>
+<p>Useful for fading objects in/out, or for pulse-fading.</p>
+
+<p>Valid opacity values are in the range of 0 to 255, inclusive, for the integer
+version, and 0.0 to 1.0 for the float version.</p>
+
+<p>Components must be <a href="#colourable">colourable</a>.</p>
+<h3 id='move-transition'>Move Transition</h3><pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">rainbow</span><span class="o">::</span><span class="n">Timer</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">move</span>  <span class="p">(</span><span class="n">T</span> <span class="n">component</span><span class="p">,</span>
+                                 <span class="n">Vec2f</span> <span class="n">destination</span><span class="p">,</span>
+                                 <span class="kt">int</span> <span class="n">duration</span><span class="p">,</span>
+                                 <span class="n">TimingFunction</span> <span class="n">timing</span><span class="p">)</span>
+</code></pre>
+<p>Animates <code>component</code> moving towards <code>destination</code>.</p>
+
+<p>Components must be <a href="#translatable">translatable</a>.</p>
+<h3 id='rotate-transition'>Rotate Transition</h3><pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">rainbow</span><span class="o">::</span><span class="n">Timer</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">rotate</span>  <span class="p">(</span><span class="n">T</span> <span class="n">component</span><span class="p">,</span>
+                                   <span class="kt">float</span> <span class="n">angle</span><span class="p">,</span>
+                                   <span class="kt">int</span> <span class="n">duration</span><span class="p">,</span>
+                                   <span class="n">TimingFunction</span> <span class="n">timing</span><span class="p">)</span>
+</code></pre>
+<p>Animates <code>component</code> rotating towards <code>angle</code> radians.</p>
+
+<p>Components must be <a href="#rotatable">rotatable</a>.</p>
+<h3 id='scale-transition'>Scale Transition</h3><pre class="highlight cpp"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">rainbow</span><span class="o">::</span><span class="n">Timer</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">scale</span>  <span class="p">(</span><span class="n">T</span> <span class="n">component</span><span class="p">,</span>
+                                  <span class="kt">float</span> <span class="n">factor</span><span class="p">,</span>
+                                  <span class="kt">int</span> <span class="n">duration</span><span class="p">,</span>
+                                  <span class="n">TimingFunction</span> <span class="n">timing</span><span class="p">)</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">rainbow</span><span class="o">::</span><span class="n">Timer</span><span class="o">*</span>  <span class="n">rainbow</span><span class="o">::</span><span class="n">scale</span>  <span class="p">(</span><span class="n">T</span> <span class="n">component</span><span class="p">,</span>
+                                  <span class="n">Vec2f</span> <span class="n">factor</span><span class="p">,</span>
+                                  <span class="kt">int</span> <span class="n">duration</span><span class="p">,</span>
+                                  <span class="n">TimingFunction</span> <span class="n">timing</span><span class="p">)</span>
+</code></pre>
+<p>The first version scales the component uniformly on both axes. Use the second
+version when you want to specify the scale factor for each axis individually.</p>
+
+<p>Components must be <a href="#scalable">scalable</a>.</p>
+<h2 id='timing-functions'>Timing Functions</h2>
+<p>The following functions are available:</p>
+
+<ul>
+<li><code>rainbow::timing::linear</code></li>
+<li><code>rainbow::timing::ease_in_back</code></li>
+<li><code>rainbow::timing::ease_in_bounce</code></li>
+<li><code>rainbow::timing::ease_in_cubic</code></li>
+<li><code>rainbow::timing::ease_in_exponential</code></li>
+<li><code>rainbow::timing::ease_in_quadratic</code></li>
+<li><code>rainbow::timing::ease_in_quartic</code></li>
+<li><code>rainbow::timing::ease_in_quintic</code></li>
+<li><code>rainbow::timing::ease_in_sine</code></li>
+<li><code>rainbow::timing::ease_out_back</code></li>
+<li><code>rainbow::timing::ease_out_bounce</code></li>
+<li><code>rainbow::timing::ease_out_cubic</code></li>
+<li><code>rainbow::timing::ease_out_exponential</code></li>
+<li><code>rainbow::timing::ease_out_quadratic</code></li>
+<li><code>rainbow::timing::ease_out_quartic</code></li>
+<li><code>rainbow::timing::ease_out_quintic</code></li>
+<li><code>rainbow::timing::ease_out_sine</code></li>
+<li><code>rainbow::timing::ease_in_out_back</code></li>
+<li><code>rainbow::timing::ease_in_out_bounce</code></li>
+<li><code>rainbow::timing::ease_in_out_cubic</code></li>
+<li><code>rainbow::timing::ease_in_out_exponential</code></li>
+<li><code>rainbow::timing::ease_in_out_quadratic</code></li>
+<li><code>rainbow::timing::ease_in_out_quartic</code></li>
+<li><code>rainbow::timing::ease_in_out_quintic</code></li>
+<li><code>rainbow::timing::ease_in_out_sine</code></li>
+</ul>
+
+<p>To see how each of these behave visually, see <a href="http://easings.net/" title="Easing Functions Cheat Sheet">Easing Functions Cheat Sheet</a>.</p>
+<h2 id='example'>Example</h2><pre class="highlight cpp"><code><span class="cp">#include "FileSystem/FileSystem.h"
+#include "Script/GameBase.h"
+#include "Script/Transition.h"
+</span>
+<span class="k">class</span> <span class="nc">TransitionExample</span> <span class="k">final</span> <span class="o">:</span> <span class="k">public</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">TransitionExample</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span> <span class="o">&amp;</span><span class="n">director</span><span class="p">)</span> <span class="o">:</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="p">(</span><span class="n">director</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">rainbow</span><span class="o">::</span><span class="n">spritebatch_t</span> <span class="n">batch_</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="n">init_impl</span><span class="p">(</span><span class="k">const</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">Vec2i</span> <span class="o">&amp;</span><span class="n">screen</span><span class="p">)</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="n">batch_</span> <span class="o">=</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">spritebatch</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+        <span class="k">auto</span> <span class="n">logo_path</span> <span class="o">=</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">filesystem</span><span class="o">::</span><span class="n">relative</span><span class="p">(</span><span class="s">"rainbow-logo.png"</span><span class="p">);</span>
+        <span class="k">auto</span> <span class="n">texture</span> <span class="o">=</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">texture</span><span class="p">(</span><span class="n">logo_path</span><span class="p">);</span>
+        <span class="n">batch_</span><span class="o">-&gt;</span><span class="n">set_texture</span><span class="p">(</span><span class="n">texture</span><span class="p">);</span>
+
+        <span class="k">auto</span> <span class="n">logo</span> <span class="o">=</span> <span class="n">batch_</span><span class="o">-&gt;</span><span class="n">create_sprite</span><span class="p">(</span><span class="mi">392</span><span class="p">,</span> <span class="mi">710</span><span class="p">);</span>
+        <span class="n">logo</span><span class="o">-&gt;</span><span class="n">set_color</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Color</span><span class="p">{</span><span class="mh">0xffffff00</span><span class="p">});</span>
+        <span class="n">logo</span><span class="o">-&gt;</span><span class="n">set_position</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Vec2f</span><span class="p">{</span><span class="n">screen</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span> <span class="mf">0.5</span><span class="n">f</span><span class="p">,</span> <span class="n">screen</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="mf">0.5</span><span class="n">f</span><span class="p">});</span>
+        <span class="n">logo</span><span class="o">-&gt;</span><span class="n">set_scale</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+        <span class="n">logo</span><span class="o">-&gt;</span><span class="n">set_texture</span><span class="p">(</span><span class="n">texture</span><span class="o">-&gt;</span><span class="n">add_region</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">392</span><span class="p">,</span> <span class="mi">710</span><span class="p">));</span>
+        <span class="n">render_queue</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">batch_</span><span class="p">);</span>
+
+        <span class="n">rainbow</span><span class="o">::</span><span class="n">fade</span><span class="p">(</span><span class="n">logo</span><span class="p">,</span> <span class="mf">1.0</span><span class="n">f</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">timing</span><span class="o">::</span><span class="n">linear</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">rainbow</span><span class="o">::</span><span class="n">Director</span><span class="o">&amp;</span> <span class="n">director</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">rainbow</span><span class="o">::</span><span class="n">GameBase</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">TransitionExample</span><span class="o">&gt;</span><span class="p">(</span><span class="n">director</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>Output (refresh if you missed the animation):</p>
+
+<p><img src="images/transitions_output.gif" alt="Fade-In Animation" /></p>
+<h2 id='caveats-and-known-limitations'>Caveats and Known Limitations</h2>
+<p>Transitions are based on timers and will therefore run regardless of the enabled
+state of the component&#39;s render unit. The <code>Timer</code> object returned by the
+transition function can be used to pause/resume the animation.</p>
+<h1 id='coding-standard'>Coding Standard</h1>
+<p>For starters, please read through the
+<a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines">C++ Core Guidelines</a>.
+Some of its points may only be repeated here on this page for emphasis.</p>
+<h2 id='general-practices'>General Practices</h2>
+<ul>
+<li>Don&#39;t use run-time type information.</li>
+<li>Don&#39;t use exceptions.</li>
+<li>Initialise variables in declaration, as close to the site of first use as
+possible, and in the most limiting scope possible.</li>
+<li>Avoid static and global variables unless they can be declared <code>const</code> or
+<code>constexpr</code>. Otherwise, use the <code>Global</code> template for classes that should be
+globally accessible.</li>
+<li>Avoid type casting. Use explicit casts like <code>static_cast</code> and
+<code>reinterpret_cast</code> if you must. Old C-style cast is forbidden.</li>
+<li>Use <code>constexpr</code> and <code>const</code> whenever you can.</li>
+<li>Use macros sparingly. If you cannot avoid them, try to <code>#define</code> them just
+before usage site and <code>#undef</code> right after.</li>
+<li>Use <code>0</code> for integers, <code>0.0</code> for reals, <code>nullptr</code> for pointers, and <code>\0</code> for
+chars.</li>
+<li>Prefer <code>sizeof()</code> on the instance itself rather than the type.</li>
+</ul>
+<h3 id='interfaces'>Interfaces</h3>
+<ul>
+<li>Declare freestanding functions within the <code>rainbow</code> namespace, or as static
+member functions. Global functions are not allowed.</li>
+<li>Use <code>NotNull</code> to indicate that <code>nullptr</code> is not valid.</li>
+<li>Use <code>Owner</code> to indicate ownership when a smart pointer makes things
+unnecessarily more complex.
+
+<ul>
+<li>Assume that a naked pointer/reference is borrowed. Don&#39;t delete these
+yourself.</li>
+</ul></li>
+<li>Use <code>final</code> and <code>override</code> when overriding methods.</li>
+<li>Declare derived classes <code>final</code> whenever possible.</li>
+<li>Avoid separating template method declaration and definition whenever possible.
+Some compilers fail to recognise the corresponding definitions for non-trivial
+templates when separated.</li>
+</ul>
+<h3 id='namespaces'>Namespaces</h3>
+<ul>
+<li>Use unnamed namespaces in your <code>.cpp</code>s.</li>
+<li><em>using-directives</em>, e.g. <code>using namespace std;</code>, is forbidden.</li>
+<li><em>using-declarations</em>, e.g. <code>using std::vector;</code>, are allowed anywhere in
+<code>.cpp</code>s, and inside classes, functions, methods, and namespaces in <code>.h</code>s.</li>
+</ul>
+<h3 id='comments'>Comments</h3>
+<p>Use <a href="https://msdn.microsoft.com/en-us/library/ms177226.aspx">XML documentation</a>.
+It is supported by both <a href="http://doxygen.org/">Doxygen</a> and Visual Studio&#39;s
+<a href="https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx">IntelliSense</a>.</p>
+<h3 id='logging'>Logging</h3>
+<ul>
+<li>Use <code>R_ASSERT</code> for assertions.</li>
+<li>Use <code>LOGD/E/F/I/W</code> macros for printing to the console with a timestamp and
+severity level (debug, error, fatal, info, and warning respectively). Note
+that only messages logged with <code>LOGE</code> will be visible in release builds.</li>
+<li>Use <code>R_ABORT</code> to terminate with an error message.</li>
+</ul>
+<h2 id='source-files'>Source Files</h2><h3 id='headers'>Headers</h3>
+<p>Filenames must end in <code>.h</code>, and should be self-contained. That means that you
+should be able to simply include it without having to include or declare
+anything else.</p>
+<h3 id='header-guards'>Header Guards</h3>
+<p>All header files must have <code>#define</code> guards. The format of the macro should be
+the full path of the file starting from <code>src/</code>. E.g. the file
+<code>src/Common/impl/DataMap_Unix.h</code> should have the following guard:</p>
+<pre class="highlight cpp"><code><span class="cp">#ifndef COMMON_IMPL_DATAMAP_UNIX_H_
+#define COMMON_IMPL_DATAMAP_UNIX_H_
+</span><span class="err">…</span>
+<span class="cp">#endif
+</span></code></pre><h3 id='names-and-order-of-includes'>Names and Order of Includes</h3>
+<ol>
+<li>Corresponding header</li>
+<li>C/C++ library</li>
+<li>Third-party libraries</li>
+<li>Rainbow headers</li>
+</ol>
+
+<p>Within each section, order the includes alphabetically. The paths to Rainbow&#39;s
+header files must always be descendants of <code>src/</code>. Don&#39;t use relative paths, or
+paths with <code>.</code> or <code>..</code>.</p>
+
+<p>For example, see <code>src/ThirdParty/Spine/spine-rainbow.cpp</code>:</p>
+<pre class="highlight cpp"><code><span class="cp">#include "ThirdParty/Spine/spine-rainbow.h"
+</span>
+<span class="cp">#include &lt;algorithm&gt;
+</span>
+<span class="cp">#include &lt;spine/SkeletonJson.h&gt;
+#include &lt;spine/extension.h&gt;
+</span>
+<span class="cp">#include "Common/DataMap.h"
+#include "FileSystem/Path.h"
+#include "Graphics/Renderer.h"
+#include "Graphics/SpriteVertex.h"
+#include "Graphics/TextureAtlas.h"
+</span></code></pre><h3 id='forward-declarations'>Forward Declarations</h3>
+<p>Use forward declarations whenever possible to avoid unnecessary <code>#include</code>s.</p>
+<h2 id='classes'>Classes</h2>
+<ul>
+<li>Always initialise members in the constructor using an initialisation list.</li>
+<li>Use the <code>explicit</code> keyword for constructors callable with one argument.</li>
+<li>Prefer composition over inheritance.</li>
+<li>Data members should be private. If access to them are needed, define accessors
+and mutators.</li>
+</ul>
+<h3 id='declaration-order'>Declaration Order</h3>
+<p>Declare public members first, followed by protected, and finally private. Within
+each section, use the following order:</p>
+
+<ol>
+<li><code>using</code>s, enums, and inner classes/structs</li>
+<li>Constants (static const data members)</li>
+<li>Static methods</li>
+<li>Data members (except static const data members)</li>
+<li>Constructors</li>
+<li>Destructor</li>
+<li>Accessors and mutators</li>
+<li>Methods</li>
+<li>Event handlers</li>
+<li>Operator overloads</li>
+<li>Overrides</li>
+</ol>
+<h2 id='naming-conventions'>Naming Conventions</h2>
+<ul>
+<li>File names are <strong>PascalCased</strong> and suffixed <code>.cpp</code> or <code>.h</code> for C++ files.
+
+<ul>
+<li>Corresponding test files are suffixed <code>.test.cc</code>.</li>
+</ul></li>
+<li>Class names are <strong>PascalCased</strong>.
+
+<ul>
+<li>Pure interfaces must have an <code>I</code> prefixed.</li>
+</ul></li>
+<li>Variable names are <strong>snake_cased</strong>.
+
+<ul>
+<li>Member variables have a trailing underscore, e.g. <code>a_local_variable_</code>.</li>
+<li>Struct members don&#39;t have a trailing underscore.</li>
+</ul></li>
+<li>Constant names are <strong>PascalCased</strong> and are prefixed with <code>k</code>.</li>
+<li>Function names are <strong>snake_cased</strong>.
+
+<ul>
+<li>Member accessors are named after the backing variable without the trailing
+underscore, e.g. <code>int status() const { return status_; }</code>.</li>
+<li>Member setters are named after the backing variable with <code>set_</code> prefixed,
+e.g. <code>void set_status(int status) { status_ = status; }</code>.</li>
+</ul></li>
+<li>Namespace names are <strong>snake_cased</strong>.</li>
+<li>Enumerator names are <strong>PascalCased</strong>.</li>
+<li>Macro names are all <strong>UPPER_CASE_AND_UNDERSCORES</strong>.</li>
+</ul>
+<h2 id='formatting'>Formatting</h2>
+<p>Use the provided <code>.clang-format</code> configuration to format any written code. There
+should be a <a href="http://clang.llvm.org/docs/ClangFormat.html">ClangFormat</a> plugin
+for your favourite editor:</p>
+
+<ul>
+<li>Sublime Text: <a href="https://github.com/rosshemsley/SublimeClangFormat">Clang Format</a></li>
+<li>Visual Studio: <a href="http://llvm.org/builds/">clang-format plugin</a></li>
+<li>Vim: <a href="https://github.com/rhysd/vim-clang-format">vim-clang-format</a></li>
+<li>Xcode: <a href="https://github.com/travisjeffery/ClangFormat-Xcode">ClangFormat-Xcode</a></li>
+</ul>
+<h2 id='using-linters'>Using Linters</h2>
+<p>You can tell CMake to run <strong>clang-tidy</strong> as part of the build process by passing
+<code>-DCMAKE_CXX_CLANG_TIDY=/path/to/clang-tidy</code> as a parameter to the build script.</p>
+<h2 id='other-guidelines'>Other Guidelines</h2>
+<ul>
+<li><a href="https://google-styleguide.googlecode.com/svn/trunk/cppguide.html">Google C++ Style Guide</a></li>
+<li><a href="http://llvm.org/docs/CodingStandards.html">LLVM Coding Standards</a></li>
+<li><a href="https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard/">Unreal Engine Coding Standard</a></li>
+</ul>
+<h1 id='license'>License</h1>
+<p>Copyright &copy; 2010-present Bifrost Entertainment AS and Tommy Nguyen</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="typescript">JavaScript</a>
+                <a href="#" data-language-name="cpp">C++</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
