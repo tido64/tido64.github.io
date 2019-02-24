@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Transitions (C++ only) · Rainbow</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Transitions provide a simple way to animate properties of a sprite such as"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Transitions (C++ only) · Rainbow"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tido64.github.io/rainbow/"/><meta property="og:description" content="Transitions provide a simple way to animate properties of a sprite such as"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/rainbow/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rainbow/js/scrollSpy.js"></script><link rel="stylesheet" href="/rainbow/css/main.css"/><script src="/rainbow/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rainbow/"><img class="logo" src="/rainbow/img/logo.png" alt="Rainbow"/><h2 class="headerTitleWithLogo">Rainbow</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Components</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/basics">Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Components</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/audio">Audio</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/input">Input</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/sprite-sheet-animations">Sprite Sheet Animations</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/math">Math (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/timers">Timers (C++ only)</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/rainbow/docs/transitions">Transitions (C++ only)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contributing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/coding-standard">Coding Standard</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Transitions (C++ only)</h1></header><article><div><span><p>Transitions provide a simple way to animate properties of a sprite such as
+opacity or position.</p>
+<h2><a class="anchor" aria-hidden="true" id="functions"></a><a href="#functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functions</h2>
+<p>Rainbow implements a set of transitions for any objects that implement the
+appropriate methods. Duration is specified in milliseconds.</p>
+<h3><a class="anchor" aria-hidden="true" id="definitions"></a><a href="#definitions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Definitions</h3>
+<p>Components must implement all listed methods for each requirement of a
+transition. Which definitions they must implement will be specified.</p>
+<h4><a class="anchor" aria-hidden="true" id="colourable"></a><a href="#colourable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Colourable</h4>
+<p>A colourable component must implement methods for getting and setting colour.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">auto</span> Colorable::color() <span class="hljs-keyword">const</span> -&gt; Color;
+<span class="hljs-keyword">void</span> Colorable::color(Color);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="rotatable"></a><a href="#rotatable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rotatable</h4>
+<p>A rotatable component must implement a method for rotating it relative to its
+current angle. The value passed is in radians.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">void</span> Rotatable::rotate(<span class="hljs-keyword">float</span>);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="scalable"></a><a href="#scalable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scalable</h4>
+<p>A scalable component must implement methods for getting and setting the
+component's current scale factors individually on each axis.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">auto</span> Scalable::scale() <span class="hljs-keyword">const</span> -&gt; Vec2f;
+<span class="hljs-keyword">void</span> Scalable::scale(Vec2f);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="translatable"></a><a href="#translatable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Translatable</h4>
+<p>A translatable component must implement a method for retrieving the component's
+current position, and one for moving it relatively to its current position.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">auto</span> Translatable::position() <span class="hljs-keyword">const</span> -&gt; Vec2f;
+<span class="hljs-keyword">void</span> Translatable::move(Vec2f);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="fade-transition"></a><a href="#fade-transition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fade Transition</h3>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">auto</span> rainbow::fade(T component,
+                   <span class="hljs-keyword">int</span> opacity,
+                   <span class="hljs-keyword">int</span> duration,
+                   TimingFunction) -&gt; rainbow::Timer*;
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">auto</span> rainbow::fade(T component,
+                   <span class="hljs-keyword">float</span> opacity,
+                   <span class="hljs-keyword">int</span> duration,
+                   TimingFunction) -&gt; rainbow::Timer*;
+</code></pre>
+<p>Useful for fading objects in/out, or for pulse-fading.</p>
+<p>Valid opacity values are in the range of 0 to 255, inclusive, for the integer
+version, and 0.0 to 1.0 for the float version.</p>
+<p>Components must be <a href="#colourable">colourable</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="move-transition"></a><a href="#move-transition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Move Transition</h3>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">auto</span> rainbow::move(T component,
+                   Vec2f destination,
+                   <span class="hljs-keyword">int</span> duration,
+                   TimingFunction) -&gt; rainbow::Timer*;
+</code></pre>
+<p>Animates <code>component</code> moving towards <code>destination</code>.</p>
+<p>Components must be <a href="#translatable">translatable</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="rotate-transition"></a><a href="#rotate-transition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rotate Transition</h3>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">auto</span> rainbow::rotate(T component,
+                     <span class="hljs-keyword">float</span> angle,
+                     <span class="hljs-keyword">int</span> duration,
+                     TimingFunction) -&gt; rainbow::Timer*;
+</code></pre>
+<p>Animates <code>component</code> rotating towards <code>angle</code> radians.</p>
+<p>Components must be <a href="#rotatable">rotatable</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="scale-transition"></a><a href="#scale-transition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scale Transition</h3>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">auto</span> rainbow::scale(T component,
+                    <span class="hljs-keyword">float</span> factor,
+                    <span class="hljs-keyword">int</span> duration,
+                    TimingFunction) -&gt; rainbow::Timer*;
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">auto</span> rainbow::scale(T component,
+                    Vec2f factor,
+                    <span class="hljs-keyword">int</span> duration,
+                    TimingFunction) -&gt; rainbow::Timer*;
+</code></pre>
+<p>The first version scales the component uniformly on both axes. Use the second
+version when you want to specify the scale factor for each axis individually.</p>
+<p>Components must be <a href="#scalable">scalable</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="timing-functions"></a><a href="#timing-functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Timing Functions</h2>
+<p>The following functions are available:</p>
+<ul>
+<li><code>rainbow::timing::linear</code></li>
+<li><code>rainbow::timing::ease_in_back</code></li>
+<li><code>rainbow::timing::ease_in_bounce</code></li>
+<li><code>rainbow::timing::ease_in_cubic</code></li>
+<li><code>rainbow::timing::ease_in_exponential</code></li>
+<li><code>rainbow::timing::ease_in_quadratic</code></li>
+<li><code>rainbow::timing::ease_in_quartic</code></li>
+<li><code>rainbow::timing::ease_in_quintic</code></li>
+<li><code>rainbow::timing::ease_in_sine</code></li>
+<li><code>rainbow::timing::ease_out_back</code></li>
+<li><code>rainbow::timing::ease_out_bounce</code></li>
+<li><code>rainbow::timing::ease_out_cubic</code></li>
+<li><code>rainbow::timing::ease_out_exponential</code></li>
+<li><code>rainbow::timing::ease_out_quadratic</code></li>
+<li><code>rainbow::timing::ease_out_quartic</code></li>
+<li><code>rainbow::timing::ease_out_quintic</code></li>
+<li><code>rainbow::timing::ease_out_sine</code></li>
+<li><code>rainbow::timing::ease_in_out_back</code></li>
+<li><code>rainbow::timing::ease_in_out_bounce</code></li>
+<li><code>rainbow::timing::ease_in_out_cubic</code></li>
+<li><code>rainbow::timing::ease_in_out_exponential</code></li>
+<li><code>rainbow::timing::ease_in_out_quadratic</code></li>
+<li><code>rainbow::timing::ease_in_out_quartic</code></li>
+<li><code>rainbow::timing::ease_in_out_quintic</code></li>
+<li><code>rainbow::timing::ease_in_out_sine</code></li>
+</ul>
+<p>To see how each of these behave visually, see <a href="https://easings.net/" title="Easing Functions Cheat Sheet">Easing Functions Cheat Sheet</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
+<pre><code class="hljs css language-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"Graphics/SpriteBatch.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"Script/GameBase.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"Script/Transition.h"</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TransitionExample</span> <span class="hljs-title">final</span> :</span> <span class="hljs-keyword">public</span> rainbow::GameBase
+{
+<span class="hljs-keyword">public</span>:
+  TransitionExample(rainbow::Director &amp;director)
+    : rainbow::GameBase(director),
+      batch_(<span class="hljs-number">1</span>)
+  {
+  }
+
+<span class="hljs-keyword">private</span>:
+  rainbow::graphics::Texture texture_;
+  rainbow::SpriteBatch batch_;
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init_impl</span><span class="hljs-params">(<span class="hljs-keyword">const</span> rainbow::Vec2i &amp;screen)</span> override
+  </span>{
+    texture_ = texture_provider().get(<span class="hljs-string">"rainbow-logo.png"</span>);
+    batch_.set_texture(texture_);
+
+    <span class="hljs-keyword">auto</span> logo = batch_.create_sprite(<span class="hljs-number">392</span>, <span class="hljs-number">710</span>);
+    logo-&gt;color({<span class="hljs-number">0xffffff00</span>})
+        .position({screen.x * <span class="hljs-number">0.5F</span>, screen.y * <span class="hljs-number">0.5F</span>})
+        .scale(<span class="hljs-number">0.5F</span>)
+        .texture({<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">392</span>, <span class="hljs-number">710</span>});
+
+    render_queue().emplace_back(batch_);
+
+    rainbow::fade(logo, <span class="hljs-number">1.0F</span>, <span class="hljs-number">1500</span>, rainbow::timing::linear);
+  }
+};
+
+<span class="hljs-keyword">auto</span> rainbow::GameBase::create(rainbow::Director&amp; director)
+    -&gt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;rainbow::GameBase&gt;
+{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">std</span>::make_unique&lt;TransitionExample&gt;(director);
+}
+</code></pre>
+<p>Output (refresh if you missed the animation):</p>
+<p><img src="/rainbow/docs/assets/transitions-example.gif" alt="Fade-In Animation"></p>
+<h2><a class="anchor" aria-hidden="true" id="caveats-and-known-limitations"></a><a href="#caveats-and-known-limitations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Caveats and Known Limitations</h2>
+<p>Transitions are based on timers and will therefore run regardless of the enabled
+state of the component's render unit. The <code>Timer</code> object returned by the
+transition function can be used to pause/resume the animation.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rainbow/docs/timers"><span class="arrow-prev">← </span><span>Timers (C++ only)</span></a><a class="docs-next button" href="/rainbow/docs/coding-standard"><span>Coding Standard</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#functions">Functions</a><ul class="toc-headings"><li><a href="#definitions">Definitions</a></li><li><a href="#fade-transition">Fade Transition</a></li><li><a href="#move-transition">Move Transition</a></li><li><a href="#rotate-transition">Rotate Transition</a></li><li><a href="#scale-transition">Scale Transition</a></li></ul></li><li><a href="#timing-functions">Timing Functions</a></li><li><a href="#example">Example</a></li><li><a href="#caveats-and-known-limitations">Caveats and Known Limitations</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/rainbow/" class="nav-home"><img src="/rainbow/img/logo.png" alt="Rainbow" width="52" height="52"/></a><div><h5>Docs</h5><a href="/rainbow/docs/getting-started">Getting Started (or other categories)</a><a href="/rainbow/docs/coding-standard">Coding Standard</a></div><div><h5>Community</h5><a href="https://www.reddit.com/r/rainbowtech">Forum</a><a href="https://github.com/tido64/rainbow/issues">Issues</a><a href="https://github.com/tido64/rainbow/pulls">Pull Requests</a><a href="https://trello.com/b/r2TqudY6/rainbow">Roadmap</a></div><div><h5>More</h5><a href="https://github.com/tido64/rainbow">GitHub</a><a class="github-button" href="https://github.com/tido64/rainbow" data-icon="octicon-star" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Bifrost Entertainment AS and Tommy Nguyen</section></footer></div></body></html>

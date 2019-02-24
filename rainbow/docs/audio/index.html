@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Audio · Rainbow</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Audio consists mainly of the sound object and the audio channel. The sound"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Audio · Rainbow"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tido64.github.io/rainbow/"/><meta property="og:description" content="Audio consists mainly of the sound object and the audio channel. The sound"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/rainbow/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rainbow/js/scrollSpy.js"></script><link rel="stylesheet" href="/rainbow/css/main.css"/><script src="/rainbow/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rainbow/"><img class="logo" src="/rainbow/img/logo.png" alt="Rainbow"/><h2 class="headerTitleWithLogo">Rainbow</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Components</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/basics">Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Components</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/rainbow/docs/audio">Audio</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/input">Input</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/sprite-sheet-animations">Sprite Sheet Animations</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/math">Math (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/timers">Timers (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/transitions">Transitions (C++ only)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contributing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/coding-standard">Coding Standard</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Audio</h1></header><article><div><span><p>Audio consists mainly of the sound object and the audio channel. The sound
+object is basically an audio buffer. It can be wholly loaded, or it can stream
+from disk. A sound object is played on an audio channel. An audio channel can
+only play one sound object at a time but the sound object can be used by any
+number of channels. As raw audio data can take a large amount of memory, it is
+recommended to only create static sound objects for short audio files (such as
+sound effects).</p>
+<h2><a class="anchor" aria-hidden="true" id="supported-audio-codecs"></a><a href="#supported-audio-codecs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Supported Audio Codecs</h2>
+<table>
+<thead>
+<tr><th>OS</th><th style="text-align:center">AAC</th><th style="text-align:center">ALAC</th><th style="text-align:center">HE-AAC</th><th style="text-align:center">MP3</th><th style="text-align:center">Ogg</th></tr>
+</thead>
+<tbody>
+<tr><td>Windows</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center">✓</td></tr>
+<tr><td>macOS</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td></tr>
+<tr><td>Linux</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center">✓</td></tr>
+<tr><td>Android</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center">✓</td></tr>
+<tr><td>iOS</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td></tr>
+</tbody>
+</table>
+<p>This table is not exhaustive. Your target devices may support more decoders than
+listed here. Please check the appropriate documentations.</p>
+<h2><a class="anchor" aria-hidden="true" id="resource-management"></a><a href="#resource-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource Management</h2>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-1-tab-2" class="nav-link active" data-group="group_1" data-tab="tab-group-1-content-2">TypeScript</div><div id="tab-group-1-tab-3" class="nav-link" data-group="group_1" data-tab="tab-group-1-content-3">C++</div></div><div class="tab-content"><div id="tab-group-1-content-2" class="tab-pane active" data-group="group_1" tabindex="-1"><div><span><pre><code class="hljs css language-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">loadSound</span>(<span class="hljs-params">path: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">Sound</span></span>;<br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">loadStream</span>(<span class="hljs-params">path: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">Sound</span></span>;<br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">release</span>(<span class="hljs-params">sound: Sound</span>): <span class="hljs-title">undefined</span></span>;<br /></code></pre>
+</span></div></div><div id="tab-group-1-content-3" class="tab-pane" data-group="group_1" tabindex="-1"><div><span><pre><code class="hljs css language-cpp"><span class="hljs-keyword">auto</span> rainbow::audio::load_sound(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* path) -&gt; Sound*;<br /><span class="hljs-keyword">auto</span> rainbow::audio::load_stream(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* path) -&gt; Sound*;<br /><span class="hljs-keyword">void</span> rainbow::audio::release(Sound*);<br /></code></pre>
+</span></div></div></div></div>
+<p>Loads the audio file at given path, and returns a handle for a <code>Sound</code> resource
+if successful. Otherwise, a <code>nullptr</code> is returned. <code>load_sound</code> will load the
+whole file into memory, while <code>load_stream</code> will only open the file and stream
+the data as the file is played.</p>
+<p>To release an audio resource, call <code>release</code> with the handle.</p>
+<h2><a class="anchor" aria-hidden="true" id="playback"></a><a href="#playback" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Playback</h2>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-4-tab-5" class="nav-link active" data-group="group_4" data-tab="tab-group-4-content-5">TypeScript</div><div id="tab-group-4-tab-6" class="nav-link" data-group="group_4" data-tab="tab-group-4-content-6">C++</div></div><div class="tab-content"><div id="tab-group-4-content-5" class="tab-pane active" data-group="group_4" tabindex="-1"><div><span><pre><code class="hljs css language-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">isPaused</span>(<span class="hljs-params">channel: Channel</span>): <span class="hljs-title">boolean</span></span>;<br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">isPlaying</span>(<span class="hljs-params">channel: Channel</span>): <span class="hljs-title">boolean</span></span>;<br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">pause</span>(<span class="hljs-params">channel: Channel</span>): <span class="hljs-title">void</span></span>;<br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">play</span>(<span class="hljs-params">audial: Channel | Sound</span>): <span class="hljs-title">Channel</span></span>;<br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">stop</span>(<span class="hljs-params">channel: Channel</span>): <span class="hljs-title">void</span></span>;<br /></code></pre>
+</span></div></div><div id="tab-group-4-content-6" class="tab-pane" data-group="group_4" tabindex="-1"><div><span><pre><code class="hljs css language-cpp"><span class="hljs-keyword">auto</span> rainbow::audio::is_paused(Channel*) -&gt; <span class="hljs-keyword">bool</span>;<br /><span class="hljs-keyword">auto</span> rainbow::audio::is_playing(Channel*) -&gt; <span class="hljs-keyword">bool</span>;<br /><span class="hljs-keyword">void</span> rainbow::audio::pause(Channel*);<br /><span class="hljs-keyword">auto</span> rainbow::audio::play(Channel*) -&gt; Channel*;<br /><span class="hljs-keyword">auto</span> rainbow::audio::play(Sound*, Vec2f world_position = Vec2f::Zero) -&gt; Channel*;<br /><span class="hljs-keyword">void</span> rainbow::audio::stop(Channel*);<br /></code></pre>
+</span></div></div></div></div>
+<p>Once a <code>Sound</code> resource is obtained, it can be played by calling <code>play</code>. This,
+in turn, will return a <code>Channel</code> handle that can be used to pause/resume/stop
+the playback. The handle cannot be used to restart playback if it's stopped.
+<strong>Once playback stops, the handle becomes invalid</strong>, and is returned to the pool
+to be reused by subsequent calls to <code>play(Sound*, ...)</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h2>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-7-tab-8" class="nav-link active" data-group="group_7" data-tab="tab-group-7-content-8">TypeScript</div><div id="tab-group-7-tab-9" class="nav-link" data-group="group_7" data-tab="tab-group-7-content-9">C++</div></div><div class="tab-content"><div id="tab-group-7-content-8" class="tab-pane active" data-group="group_7" tabindex="-1"><div><span><pre><code class="hljs css language-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">setLoopCount</span>(<span class="hljs-params">channel: Channel, count: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">void</span></span>;<br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">setVolume</span>(<span class="hljs-params">channel: Channel, volume: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">void</span></span>;<br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rainbow</span>.<span class="hljs-title">Audio</span>.<span class="hljs-title">setWorldPosition</span>(<span class="hljs-params">channel: Channel, position: { x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span> }</span>): <span class="hljs-title">void</span></span>;<br /></code></pre>
+</span></div></div><div id="tab-group-7-content-9" class="tab-pane" data-group="group_7" tabindex="-1"><div><span><pre><code class="hljs css language-cpp"><span class="hljs-keyword">void</span> rainbow::audio::set_loop_count(Channel*, <span class="hljs-keyword">int</span> count);<br /><span class="hljs-keyword">void</span> rainbow::audio::set_volume(Channel*, <span class="hljs-keyword">float</span> volume);<br /><span class="hljs-keyword">void</span> rainbow::audio::set_world_position(Channel*, Vec2f position);<br /></code></pre>
+</span></div></div></div></div>
+<p>A currently playing channel can be further configured. Currently, you can set
+the number of times it should loop, its volume, and world position.</p>
+<h2><a class="anchor" aria-hidden="true" id="caveats-and-known-limitations"></a><a href="#caveats-and-known-limitations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Caveats and Known Limitations</h2>
+<p>Audio channel handles are reused. This implies that an old handle may be used to
+manipulate a more recent playback.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rainbow/docs/basics"><span class="arrow-prev">← </span><span>Basics</span></a><a class="docs-next button" href="/rainbow/docs/input"><span>Input</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#supported-audio-codecs">Supported Audio Codecs</a></li><li><a href="#resource-management">Resource Management</a></li><li><a href="#playback">Playback</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#caveats-and-known-limitations">Caveats and Known Limitations</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/rainbow/" class="nav-home"><img src="/rainbow/img/logo.png" alt="Rainbow" width="52" height="52"/></a><div><h5>Docs</h5><a href="/rainbow/docs/getting-started">Getting Started (or other categories)</a><a href="/rainbow/docs/coding-standard">Coding Standard</a></div><div><h5>Community</h5><a href="https://www.reddit.com/r/rainbowtech">Forum</a><a href="https://github.com/tido64/rainbow/issues">Issues</a><a href="https://github.com/tido64/rainbow/pulls">Pull Requests</a><a href="https://trello.com/b/r2TqudY6/rainbow">Roadmap</a></div><div><h5>More</h5><a href="https://github.com/tido64/rainbow">GitHub</a><a class="github-button" href="https://github.com/tido64/rainbow" data-icon="octicon-star" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Bifrost Entertainment AS and Tommy Nguyen</section></footer></div></body></html>

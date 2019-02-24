@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Coding Standard · Rainbow</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="For starters, please read through the"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Coding Standard · Rainbow"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tido64.github.io/rainbow/"/><meta property="og:description" content="For starters, please read through the"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/rainbow/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rainbow/js/scrollSpy.js"></script><link rel="stylesheet" href="/rainbow/css/main.css"/><script src="/rainbow/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rainbow/"><img class="logo" src="/rainbow/img/logo.png" alt="Rainbow"/><h2 class="headerTitleWithLogo">Rainbow</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Contributing</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/basics">Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Components</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/audio">Audio</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/input">Input</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/sprite-sheet-animations">Sprite Sheet Animations</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/math">Math (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/timers">Timers (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/transitions">Transitions (C++ only)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contributing</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/rainbow/docs/coding-standard">Coding Standard</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Coding Standard</h1></header><article><div><span><p>For starters, please read through the
+<a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines">C++ Core Guidelines</a>.
+Some of its points may only be repeated here on this page for emphasis.</p>
+<h2><a class="anchor" aria-hidden="true" id="general-practices"></a><a href="#general-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>General Practices</h2>
+<ul>
+<li>Don't use run-time type information.</li>
+<li>Don't use exceptions.</li>
+<li>Initialise variables in declaration, as close to the site of first use as
+possible, and in the most limiting scope possible.</li>
+<li>Avoid static and global variables unless they can be declared <code>const</code> or
+<code>constexpr</code>. Otherwise, use the <code>Global</code> template for classes that should be
+globally accessible.</li>
+<li>Avoid type casting. Use explicit casts like <code>static_cast</code> and
+<code>reinterpret_cast</code> if you must. Old C-style cast is forbidden.</li>
+<li>Use <code>constexpr</code> and <code>const</code> whenever you can.</li>
+<li>Use macros sparingly. If you cannot avoid them, try to <code>#define</code> them just
+before usage site and <code>#undef</code> right after.</li>
+<li>Use <code>0</code> for integers, <code>0.0</code> for reals, <code>nullptr</code> for pointers, and <code>\0</code> for
+chars.</li>
+<li>Prefer <code>sizeof()</code> on the instance itself rather than the type.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="interfaces"></a><a href="#interfaces" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interfaces</h3>
+<ul>
+<li>Declare freestanding functions within the <code>rainbow</code> namespace, or as static
+member functions. Global functions are not allowed.</li>
+<li>Use <code>NotNull</code> to indicate that <code>nullptr</code> is not valid.</li>
+<li>Use <code>Owner</code> to indicate ownership when a smart pointer makes things
+unnecessarily more complex.
+<ul>
+<li>Assume that a naked pointer/reference is borrowed. Don't delete these
+yourself.</li>
+</ul></li>
+<li>Use <code>final</code> and <code>override</code> when overriding methods.</li>
+<li>Declare derived classes <code>final</code> whenever possible.</li>
+<li>Avoid separating template method declaration and definition whenever possible.
+Some compilers fail to recognise the corresponding definitions for non-trivial
+templates when separated.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="namespaces"></a><a href="#namespaces" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Namespaces</h3>
+<ul>
+<li>Use unnamed namespaces in your <code>.cpp</code>s.</li>
+<li><em>using-directives</em>, e.g. <code>using namespace std;</code>, is forbidden.</li>
+<li><em>using-declarations</em>, e.g. <code>using std::vector;</code>, are allowed anywhere in
+<code>.cpp</code>s, and inside classes, functions, methods, and namespaces in <code>.h</code>s.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="comments"></a><a href="#comments" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comments</h3>
+<p>Use <a href="https://docs.microsoft.com/en-us/cpp/build/reference/xml-documentation-visual-cpp">XML documentation</a>.
+It is supported by both <a href="http://doxygen.org/">Doxygen</a> and Visual Studio's
+<a href="https://docs.microsoft.com/en-us/visualstudio/ide/using-intellisense">IntelliSense</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="logging"></a><a href="#logging" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logging</h3>
+<ul>
+<li>Use <code>R_ASSERT</code> for assertions.</li>
+<li>Use <code>LOGD/E/F/I/W</code> macros for printing to the console with a timestamp and
+severity level (debug, error, fatal, info, and warning respectively). Note
+that only messages logged with <code>LOGE</code> will be visible in release builds.</li>
+<li>Use <code>R_ABORT</code> to terminate with an error message.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="source-files"></a><a href="#source-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source Files</h2>
+<h3><a class="anchor" aria-hidden="true" id="headers"></a><a href="#headers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Headers</h3>
+<p>Filenames must end in <code>.h</code>, and should be self-contained. That means that you
+should be able to simply include it without having to include or declare
+anything else.</p>
+<h3><a class="anchor" aria-hidden="true" id="header-guards"></a><a href="#header-guards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Header Guards</h3>
+<p>All header files must have <code>#define</code> guards. The format of the macro should be
+the full path of the file starting from <code>src/</code>. E.g. the file
+<code>src/Common/impl/DataMap_Unix.h</code> should have the following guard:</p>
+<pre><code class="hljs css language-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> COMMON_IMPL_DATAMAP_UNIX_H_</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> COMMON_IMPL_DATAMAP_UNIX_H_</span>
+…
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="names-and-order-of-includes"></a><a href="#names-and-order-of-includes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Names and Order of Includes</h3>
+<ol>
+<li>Corresponding header</li>
+<li>C/C++ library</li>
+<li>Third-party libraries</li>
+<li>Rainbow headers</li>
+</ol>
+<p>Within each section, order the includes alphabetically. The paths to Rainbow's
+header files must always be descendants of <code>src/</code>. Don't use relative paths, or
+paths with <code>.</code> or <code>..</code>.</p>
+<p>For example, see <code>src/FileSystem/FileSystem.cpp</code>:</p>
+<pre><code class="hljs css language-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"FileSystem/FileSystem.h"</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;filesystem&gt;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;physfs.h&gt;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"Common/Logging.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"FileSystem/Bundle.h"</span></span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="forward-declarations"></a><a href="#forward-declarations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Forward Declarations</h3>
+<p>Use forward declarations whenever possible to avoid unnecessary <code>#include</code>s.</p>
+<h2><a class="anchor" aria-hidden="true" id="classes"></a><a href="#classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Classes</h2>
+<ul>
+<li>Always initialise members in the constructor using an initialisation list.</li>
+<li>Use the <code>explicit</code> keyword for constructors callable with one argument.</li>
+<li>Prefer composition over inheritance.</li>
+<li>Data members should be private. If access to them are needed, define accessors
+and mutators.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="declaration-order"></a><a href="#declaration-order" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration Order</h3>
+<p>Declare public members first, followed by protected, and finally private. Within
+each section, use the following order:</p>
+<ol>
+<li><code>using</code>s, enums, and inner classes/structs</li>
+<li>Constants (static const data members)</li>
+<li>Static methods</li>
+<li>Data members (except static const data members)</li>
+<li>Constructors</li>
+<li>Destructor</li>
+<li>Accessors and mutators</li>
+<li>Methods</li>
+<li>Event handlers</li>
+<li>Operator overloads</li>
+<li>Overrides</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="naming-conventions"></a><a href="#naming-conventions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Naming Conventions</h2>
+<ul>
+<li>File names are <strong>PascalCased</strong> and suffixed <code>.cpp</code> or <code>.h</code> for C++ files.
+<ul>
+<li>Corresponding test files are suffixed <code>.test.cc</code>.</li>
+</ul></li>
+<li>Class names are <strong>PascalCased</strong>.
+<ul>
+<li>Pure interfaces must have an <code>I</code> prefixed.</li>
+</ul></li>
+<li>Variable names are <strong>snake_cased</strong>.
+<ul>
+<li>Member variables have a trailing underscore, e.g. <code>a_local_variable_</code>.</li>
+<li>Struct members don't have a trailing underscore.</li>
+</ul></li>
+<li>Constant names are <strong>PascalCased</strong> and are prefixed with <code>k</code>.</li>
+<li>Function names are <strong>snake_cased</strong>.
+<ul>
+<li>Member accessors are named after the backing variable without the trailing
+underscore, e.g. <code>int status() const { return status_; }</code>.</li>
+<li>Member setters are named after the backing variable with <code>set_</code> prefixed,
+e.g. <code>void set_status(int status) { status_ = status; }</code>.</li>
+</ul></li>
+<li>Namespace names are <strong>snake_cased</strong>.</li>
+<li>Enumerator names are <strong>PascalCased</strong>.</li>
+<li>Macro names are all <strong>UPPER_CASE_AND_UNDERSCORES</strong>.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="formatting"></a><a href="#formatting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formatting</h2>
+<p>Use the provided <code>.clang-format</code> configuration to format any written code. There
+should be a <a href="https://clang.llvm.org/docs/ClangFormat.html">ClangFormat</a> plugin
+for your favourite editor:</p>
+<ul>
+<li>Sublime Text: <a href="https://github.com/rosshemsley/SublimeClangFormat">Clang Format</a></li>
+<li>Vim: <a href="https://github.com/rhysd/vim-clang-format">vim-clang-format</a></li>
+<li>Visual Studio: <a href="https://llvm.org/builds/">clang-format plugin</a></li>
+<li>Visual Studio Code: <a href="https://code.visualstudio.com/docs/languages/cpp">C/C++ for Visual Studio Code</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="using-linters"></a><a href="#using-linters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Linters</h2>
+<p>You can tell CMake to run <strong>clang-tidy</strong> as part of the build process by passing
+<code>-DCMAKE_CXX_CLANG_TIDY=/path/to/clang-tidy</code> as a parameter to the build script.</p>
+<h2><a class="anchor" aria-hidden="true" id="other-guidelines"></a><a href="#other-guidelines" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other Guidelines</h2>
+<ul>
+<li><a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a></li>
+<li><a href="https://llvm.org/docs/CodingStandards.html">LLVM Coding Standards</a></li>
+<li><a href="https://docs.unrealengine.com/Programming/Development/CodingStandard/">Unreal Engine Coding Standard</a></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rainbow/docs/transitions"><span class="arrow-prev">← </span><span>Transitions (C++ only)</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#general-practices">General Practices</a><ul class="toc-headings"><li><a href="#interfaces">Interfaces</a></li><li><a href="#namespaces">Namespaces</a></li><li><a href="#comments">Comments</a></li><li><a href="#logging">Logging</a></li></ul></li><li><a href="#source-files">Source Files</a><ul class="toc-headings"><li><a href="#headers">Headers</a></li><li><a href="#header-guards">Header Guards</a></li><li><a href="#names-and-order-of-includes">Names and Order of Includes</a></li><li><a href="#forward-declarations">Forward Declarations</a></li></ul></li><li><a href="#classes">Classes</a><ul class="toc-headings"><li><a href="#declaration-order">Declaration Order</a></li></ul></li><li><a href="#naming-conventions">Naming Conventions</a></li><li><a href="#formatting">Formatting</a></li><li><a href="#using-linters">Using Linters</a></li><li><a href="#other-guidelines">Other Guidelines</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/rainbow/" class="nav-home"><img src="/rainbow/img/logo.png" alt="Rainbow" width="52" height="52"/></a><div><h5>Docs</h5><a href="/rainbow/docs/getting-started">Getting Started (or other categories)</a><a href="/rainbow/docs/coding-standard">Coding Standard</a></div><div><h5>Community</h5><a href="https://www.reddit.com/r/rainbowtech">Forum</a><a href="https://github.com/tido64/rainbow/issues">Issues</a><a href="https://github.com/tido64/rainbow/pulls">Pull Requests</a><a href="https://trello.com/b/r2TqudY6/rainbow">Roadmap</a></div><div><h5>More</h5><a href="https://github.com/tido64/rainbow">GitHub</a><a class="github-button" href="https://github.com/tido64/rainbow" data-icon="octicon-star" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Bifrost Entertainment AS and Tommy Nguyen</section></footer></div></body></html>

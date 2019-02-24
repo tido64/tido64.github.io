@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Getting Started · Rainbow</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Download the Source Code"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Getting Started · Rainbow"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tido64.github.io/rainbow/"/><meta property="og:description" content="## Download the Source Code"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/rainbow/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rainbow/js/scrollSpy.js"></script><link rel="stylesheet" href="/rainbow/css/main.css"/><script src="/rainbow/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rainbow/"><img class="logo" src="/rainbow/img/logo.png" alt="Rainbow"/><h2 class="headerTitleWithLogo">Rainbow</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/rainbow/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/basics">Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Components</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/audio">Audio</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/input">Input</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/sprite-sheet-animations">Sprite Sheet Animations</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/math">Math (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/timers">Timers (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/transitions">Transitions (C++ only)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contributing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/coding-standard">Coding Standard</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Getting Started</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="download-the-source-code"></a><a href="#download-the-source-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Download the Source Code</h2>
+<p>First, make sure you've installed <a href="https://git-scm.com/downloads">Git</a> as that's
+what we'll be using to retrieve the source code. The following command will
+download Rainbow and all of its submodules into a folder named <code>rainbow</code>:</p>
+<p><code>git clone --recursive https://github.com/tido64/rainbow.git</code></p>
+<p>If you're using a graphical UI for Git, make sure to checkout the submodules as
+well.</p>
+<h2><a class="anchor" aria-hidden="true" id="building-for-windows"></a><a href="#building-for-windows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building for Windows</h2>
+<ol>
+<li><p>Install <a href="https://visualstudio.microsoft.com/vs/community/">Visual Studio Community</a>.</p></li>
+<li><p>Install <a href="https://cmake.org/download/">CMake</a>.</p></li>
+<li><p><strong>Optional:</strong> Download FMOD Studio API, and extract it. Copy the headers into
+<code>lib/FMOD/inc/</code>, and binaries into <code>lib/FMOD/lib/windows/</code>. You should end up
+with the following:</p>
+<pre><code class="hljs css language-shell">rainbow/lib/FMOD
+├── inc
+│   ├── fmod.h
+│   ├── fmod.hpp
+│   ├── fmod_codec.h
+│   ├── fmod_common.h
+│   ├── fmod_dsp.h
+│   ├── fmod_dsp_effects.h
+│   ├── fmod_errors.h
+│   ├── fmod_output.h
+│   ├── fmod_studio.h
+│   ├── fmod_studio.hpp
+│   └── fmod_studio_common.h
+└── lib
+    └── windows
+        ├── fmod.dll
+        ├── fmod_vc.lib
+        ├── fmod64.dll
+        ├── fmod64_vc.lib
+        ├── fmodstudio.dll
+        ├── fmodstudio_vc.lib
+        ├── fmodstudio64.dll
+        └── fmodstudio64_vc.lib
+</code></pre></li>
+<li><p>The PowerShell script <code>tools\make.ps1</code> will walk you through customising your
+Rainbow project. Find it using File Explorer, right-click the file, and
+select <em>Run with PowerShell</em>. You can dismiss any prompts about execution
+policy.</p></li>
+<li><p>When Visual Studio opens the project, right-click on <code>rainbow</code> and select
+<code>Set as StartUp Project</code>. Then hit <code>F5</code> to build and run.</p></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="building-for-macos"></a><a href="#building-for-macos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building for macOS</h2>
+<ol>
+<li><p>Install <a href="https://apps.apple.com/app/xcode/id497799835?mt=12">Xcode</a> from App Store.</p></li>
+<li><p>After Xcode is installed, launch it once to install Command Line Tools.</p></li>
+<li><p>Install <a href="https://brew.sh/">Homebrew</a>.</p></li>
+<li><p>Install build dependencies from the root of the repo: <code>brew bundle</code></p></li>
+<li><p><strong>Optional:</strong> Download FMOD Studio API, extract it, and point
+<code>tools/fmod-import-tool.sh</code> at the directory you extracted it to. This should
+copy all the necessary files into the <code>lib</code> folder.</p></li>
+<li><p>Make a directory for building Rainbow, then run the build script:</p>
+<pre><code class="hljs css language-shell">mkdir rainbow-build
+cd rainbow-build
+/path/to/rainbow/tools/build.sh -DCMAKE_BUILD_TYPE=&lt;configuration&gt; [option ...]
+</code></pre></li>
+<li><p>Start the playground:</p>
+<pre><code class="hljs css language-shell">./rainbow /path/to/rainbow/js
+</code></pre></li>
+</ol>
+<p>You'll find an overview of configuration and feature flags further below.</p>
+<h2><a class="anchor" aria-hidden="true" id="building-for-linux"></a><a href="#building-for-linux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building for Linux</h2>
+<ol>
+<li>Use your distro's package manager to install the dependencies:</li>
+</ol>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-25-tab-26" class="nav-link active" data-group="group_25" data-tab="tab-group-25-content-26">ArchLinux</div><div id="tab-group-25-tab-27" class="nav-link" data-group="group_25" data-tab="tab-group-25-content-27">Debian/Ubuntu</div></div><div class="tab-content"><div id="tab-group-25-content-26" class="tab-pane active" data-group="group_25" tabindex="-1"><div><span><pre><code class="hljs css language-bash">pacman -S --needed cmake gcc mesa ninja pulseaudio sdl2<br /></code></pre>
+</span></div></div><div id="tab-group-25-content-27" class="tab-pane" data-group="group_25" tabindex="-1"><div><span><pre><code class="hljs css language-bash">apt install build-essential cmake libgl1-mesa-dev libpulse-dev libsdl2-dev ninja-build pkg-config pulseaudio<br /></code></pre>
+</span></div></div></div></div>
+<ol start="2">
+<li><p><strong>Optional:</strong> Download FMOD Studio API, extract it, and point
+<code>tools/fmod-import-tool.sh</code> at the directory you extracted it to. This should
+copy all the necessary files into the <code>lib</code> folder.</p></li>
+<li><p>Make a directory for building Rainbow, then run the build script:</p>
+<pre><code class="hljs css language-shell">mkdir rainbow-build
+cd rainbow-build
+/path/to/rainbow/tools/build.sh -DCMAKE_BUILD_TYPE=&lt;configuration&gt; [option ...]
+</code></pre></li>
+<li><p>Start the playground:</p>
+<pre><code class="hljs css language-shell">./rainbow /path/to/rainbow/js
+</code></pre></li>
+</ol>
+<p>You'll find an overview of configuration and feature flags further below.</p>
+<h2><a class="anchor" aria-hidden="true" id="building-for-android"></a><a href="#building-for-android" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building for Android</h2>
+<ol>
+<li>Install <a href="https://developer.android.com/studio/">Android Studio</a>.</li>
+<li>Install <a href="https://cmake.org/">CMake</a>.</li>
+<li><strong>Optional:</strong> Download FMOD Studio API, extract it, and point
+<code>tools/fmod-import-tool.sh</code> at the directory you extracted it to. This should
+copy all the necessary files into the <code>lib</code> folder.</li>
+<li>Open <code>build/android/</code> in Android Studio.</li>
+<li>Run the app on your device or emulator.</li>
+</ol>
+<blockquote>
+<p>If you get an error about selecting Android SDK, open File menu and select
+&quot;Sync Project with Gradle Files&quot;.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="building-for-ios"></a><a href="#building-for-ios" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building for iOS</h2>
+<ol>
+<li>Install <a href="https://apps.apple.com/app/xcode/id497799835?mt=12">Xcode</a> from App Store.</li>
+<li>After Xcode is installed, launch it once to install Command Line Tools.</li>
+<li>Install <a href="https://brew.sh/">Homebrew</a>.</li>
+<li>Install CMake: <code>brew install cmake</code></li>
+<li>Open <code>build/ios/Rainbow.xcodeproj</code> in Xcode.</li>
+<li>Build and run the current scheme.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="build-configuration"></a><a href="#build-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build Configuration</h2>
+<p>Available features and build configurations:</p>
+<table>
+<thead>
+<tr><th style="text-align:left">Build configuration</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><code>Debug</code></td><td style="text-align:left">Compiles Rainbow in debug mode with little or no optimizations.</td></tr>
+<tr><td style="text-align:left"><code>Release</code></td><td style="text-align:left">Compiles Rainbow in release mode with most optimizations turned on.</td></tr>
+<tr><td style="text-align:left"><code>RelWithDebInfo</code></td><td style="text-align:left">Similar to <code>Release</code> but with debugging symbols.</td></tr>
+<tr><td style="text-align:left"><code>MinSizeRel</code></td><td style="text-align:left">Similar to <code>Release</code> with emphasis on small binary size.</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:left">Feature flag</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><code>UNIT_TESTS</code></td><td style="text-align:left">Compiles unit tests. Only useful for engine developers.</td></tr>
+<tr><td style="text-align:left"><code>USE_FMOD_STUDIO</code></td><td style="text-align:left">Replaces Rainbow's custom audio engine with FMOD Studio.</td></tr>
+<tr><td style="text-align:left"><code>USE_HEIMDALL</code></td><td style="text-align:left">Compiles in Rainbow's debug overlay and other debugging facilities.</td></tr>
+<tr><td style="text-align:left"><code>USE_PHYSICS</code></td><td style="text-align:left">Compiles in Box2D.</td></tr>
+</tbody>
+</table>
+<p>Example: Build Rainbow with physics support for game development.</p>
+<pre><code class="hljs css language-shell">/path/to/rainbow/tools/build.sh -DCMAKE_BUILD_TYPE=Debug \
+                                -DUSE_HEIMDALL=1 \
+                                -DUSE_PHYSICS=1
+</code></pre>
+<p>You can pass any number of CMake options.</p>
+<h3><a class="anchor" aria-hidden="true" id="specifying-compiler"></a><a href="#specifying-compiler" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Specifying Compiler</h3>
+<p>By default, <a href="https://gcc.gnu.org/">GCC</a> and <a href="https://clang.llvm.org/">Clang</a>
+will be used to compile both C and C++ code on Linux and macOS respectively.
+Unix Makefiles is the default generator on Linux, and Xcode on macOS. You can
+change these by prefixing environment variables. For instance, to use GCC and
+<a href="https://ninja-build.org/">Ninja</a> in place of Clang and Makefiles:</p>
+<p><code>CC=gcc CXX=g++ GENERATOR=Ninja /path/to/rainbow/tools/build.sh [option ...]</code></p>
+<p>If you have problems running <code>build.sh</code>, make sure it has execution permission:</p>
+<p><code>chmod +x /path/to/rainbow/tools/build.sh</code></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/rainbow/docs/basics"><span>Basics</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#download-the-source-code">Download the Source Code</a></li><li><a href="#building-for-windows">Building for Windows</a></li><li><a href="#building-for-macos">Building for macOS</a></li><li><a href="#building-for-linux">Building for Linux</a></li><li><a href="#building-for-android">Building for Android</a></li><li><a href="#building-for-ios">Building for iOS</a></li><li><a href="#build-configuration">Build Configuration</a><ul class="toc-headings"><li><a href="#specifying-compiler">Specifying Compiler</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/rainbow/" class="nav-home"><img src="/rainbow/img/logo.png" alt="Rainbow" width="52" height="52"/></a><div><h5>Docs</h5><a href="/rainbow/docs/getting-started">Getting Started (or other categories)</a><a href="/rainbow/docs/coding-standard">Coding Standard</a></div><div><h5>Community</h5><a href="https://www.reddit.com/r/rainbowtech">Forum</a><a href="https://github.com/tido64/rainbow/issues">Issues</a><a href="https://github.com/tido64/rainbow/pulls">Pull Requests</a><a href="https://trello.com/b/r2TqudY6/rainbow">Roadmap</a></div><div><h5>More</h5><a href="https://github.com/tido64/rainbow">GitHub</a><a class="github-button" href="https://github.com/tido64/rainbow" data-icon="octicon-star" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Bifrost Entertainment AS and Tommy Nguyen</section></footer></div></body></html>

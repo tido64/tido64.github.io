@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Math (C++ only) · Rainbow</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Small collection of common mathematical functions and convenient algorithms. All"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Math (C++ only) · Rainbow"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tido64.github.io/rainbow/"/><meta property="og:description" content="Small collection of common mathematical functions and convenient algorithms. All"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/rainbow/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rainbow/js/scrollSpy.js"></script><link rel="stylesheet" href="/rainbow/css/main.css"/><script src="/rainbow/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rainbow/"><img class="logo" src="/rainbow/img/logo.png" alt="Rainbow"/><h2 class="headerTitleWithLogo">Rainbow</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Components</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/basics">Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Components</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/audio">Audio</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/input">Input</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/sprite-sheet-animations">Sprite Sheet Animations</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/rainbow/docs/math">Math (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/timers">Timers (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/transitions">Transitions (C++ only)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contributing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/coding-standard">Coding Standard</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Math (C++ only)</h1></header><article><div><span><p>Small collection of common mathematical functions and convenient algorithms. All
+of these functions are available under namespace <code>rainbow</code> unless otherwise
+stated.</p>
+<h2><a class="anchor" aria-hidden="true" id="power-of-2"></a><a href="#power-of-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Power of 2</h2>
+<pre><code class="hljs css language-c++">auto ceil_pow2(unsigned int i) -&gt; unsigned int;
+</code></pre>
+<p>Rounds <code>i</code> up to the nearest power of 2.</p>
+<blockquote>
+<p>0 is incorrectly considered a power of 2.</p>
+</blockquote>
+<pre><code class="hljs css language-c++">auto floor_pow2(unsigned int i) -&gt; unsigned int;
+</code></pre>
+<p>Rounds <code>i</code> down to the nearest power of 2.</p>
+<pre><code class="hljs css language-c++">auto is_pow2(unsigned int i) -&gt; bool;
+</code></pre>
+<p>Returns whether integer <code>i</code> is a power of 2.</p>
+<h2><a class="anchor" aria-hidden="true" id="trigonometry"></a><a href="#trigonometry" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Trigonometry</h2>
+<pre><code class="hljs css language-c++">template &lt;typename T&gt;
+auto degrees(T r) -&gt; T;
+
+template &lt;typename T&gt;
+auto radian(T d) -&gt; T;
+</code></pre>
+<p>Converts values between degrees and radians.</p>
+<h2><a class="anchor" aria-hidden="true" id="vec2"></a><a href="#vec2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vec2</h2>
+<p><code>Vec2</code> is a two-dimensional vector template whose value type must be arithmetic.
+There are currently three predefined <code>Vec2</code> types in the global namespace.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">using</span> Vec2f = Vec2&lt;<span class="hljs-keyword">float</span>&gt;;
+<span class="hljs-keyword">using</span> Vec2i = Vec2&lt;<span class="hljs-keyword">int</span>&gt;;
+<span class="hljs-keyword">using</span> Vec2u = Vec2&lt;<span class="hljs-keyword">unsigned</span>&gt;;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="constants"></a><a href="#constants" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Constants</h3>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">const</span> Vec2&lt;T&gt; Vec2&lt;T&gt;::Down;
+</code></pre>
+<p>Vector representing down; shorthand for <code>Vec2&lt;T&gt;(0, -1)</code>.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">const</span> Vec2&lt;T&gt; Vec2&lt;T&gt;::Left;
+</code></pre>
+<p>Vector representing left; shorthand for <code>Vec2&lt;T&gt;(-1, 0)</code>.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">const</span> Vec2&lt;T&gt; Vec2&lt;T&gt;::One;
+</code></pre>
+<p>One vector; shorthand for <code>Vec2&lt;T&gt;(1, 1)</code>.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">const</span> Vec2&lt;T&gt; Vec2&lt;T&gt;::Right;
+</code></pre>
+<p>Vector representing right; shorthand for <code>Vec2&lt;T&gt;(1, 0)</code>.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">const</span> Vec2&lt;T&gt; Vec2&lt;T&gt;::Up;
+</code></pre>
+<p>Vector representing up; shorthand for <code>Vec2&lt;T&gt;(0, 1)</code>.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">const</span> Vec2&lt;T&gt; Vec2&lt;T&gt;::Zero;
+</code></pre>
+<p>Zero vector; shorthand for <code>Vec2&lt;T&gt;(0, 0)</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="methods"></a><a href="#methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods</h3>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">auto</span> Vec2&lt;T&gt;::angle(<span class="hljs-keyword">const</span> Vec2 &amp;v) <span class="hljs-keyword">const</span> -&gt; <span class="hljs-keyword">float</span>;
+</code></pre>
+<p>Returns the angle (in radians) between two points.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">auto</span> Vec2&lt;T&gt;::distance(<span class="hljs-keyword">const</span> Vec2 &amp;v) <span class="hljs-keyword">const</span> -&gt; <span class="hljs-keyword">float</span>;
+</code></pre>
+<p>Returns the distance between two points.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">auto</span> Vec2&lt;T&gt;::distance_sq(<span class="hljs-keyword">const</span> Vec2 &amp;v) <span class="hljs-keyword">const</span> -&gt; <span class="hljs-keyword">float</span>;
+</code></pre>
+<p>Returns the distance between two points, squared. This method returns before
+calculating the square root as opposed to <code>distance()</code>. This can give you some
+performance gains if you don't need the exact distance.</p>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">auto</span> Vec2&lt;T&gt;::is_zero() <span class="hljs-keyword">const</span> -&gt; <span class="hljs-keyword">bool</span>;
+</code></pre>
+<p>Returns whether both vector components are zero.</p>
+<h3><a class="anchor" aria-hidden="true" id="operators"></a><a href="#operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>Assuming <code>v</code> and <code>w</code> are instances of <code>Vec2f</code>, Rainbow implements the following
+operators:</p>
+<h4><a class="anchor" aria-hidden="true" id="vector-negation"></a><a href="#vector-negation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vector Negation</h4>
+<pre><code class="hljs css language-c++">Vec2f w = -v;
+</code></pre>
+<p>Equivalent to <code>w = Vec2f(-v.x, -v.y)</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="vector-sum"></a><a href="#vector-sum" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vector Sum</h4>
+<pre><code class="hljs css language-c++">Vec2f u = v + w;
+v += w;
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(v.x + w.x, v.y + w.y)</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="vector-difference"></a><a href="#vector-difference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vector Difference</h4>
+<pre><code class="hljs css language-c++">Vec2f u = v - w;
+v -= w;
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(v.x - w.x, v.y - w.y)</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="dot-product"></a><a href="#dot-product" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dot Product</h4>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">float</span> f = v * w;
+</code></pre>
+<p>Equivalent to <code>f = v.x * w.x + v.y * w.y</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="scalar-multiplication"></a><a href="#scalar-multiplication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scalar Multiplication</h4>
+<pre><code class="hljs css language-c++">Vec2f u = <span class="hljs-number">2.0f</span> * v;
+v *= <span class="hljs-number">2.0f</span>;
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(2.0f * v.x, 2.0f * v.y)</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="scalar-division"></a><a href="#scalar-division" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scalar Division</h4>
+<pre><code class="hljs css language-c++">Vec2f u = v / <span class="hljs-number">2.0f</span>;
+v /= <span class="hljs-number">2.0f</span>;
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(v.x / 2.0f, v.y / 2.0f)</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="scalar-addition-subtraction"></a><a href="#scalar-addition-subtraction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scalar Addition/Subtraction</h4>
+<pre><code class="hljs css language-c++">Vec2f u = v + <span class="hljs-number">5.0f</span>;
+Vec2f w = v - <span class="hljs-number">5.0f</span>;
+</code></pre>
+<p>Equivalent to <code>u = Vec2f(v.x + 5.0f, v.y + 5.0f)</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="comparison"></a><a href="#comparison" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comparison</h4>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">bool</span> equal = v == w;
+</code></pre>
+<p>Equivalent to <code>v.x == w.x &amp;&amp; v.y == w.y</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="miscellaneous"></a><a href="#miscellaneous" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Miscellaneous</h2>
+<pre><code class="hljs css language-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span> = FloatingPoint&lt;T&gt;&gt;
+<span class="hljs-keyword">auto</span> are_equal(T a, T b) -&gt; <span class="hljs-keyword">bool</span>;
+</code></pre>
+<p>Returns whether two floating point numbers are (almost) equal. Based on the
+<code>AlmostEqualRelative()</code> implementation from a <a href="https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/" title="Comparing Floating Point Numbers, 2012 Edition">Random ASCII blog post</a>.</p>
+<pre><code class="hljs css language-c++">auto fast_invsqrt(float x) -&gt; float;
+</code></pre>
+<p>Returns an approximation of 1/√x using the infamous constant 0x5f3759df.</p>
+<pre><code class="hljs css language-c++">auto is_almost_zero(float x) -&gt; bool;
+</code></pre>
+<p>Returns whether <code>x</code> is practically zero. A number is considered almost zero if
+it's within <code>10 * ε</code>. On some hardware, this is 0.0000011920929.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rainbow/docs/sprite-sheet-animations"><span class="arrow-prev">← </span><span>Sprite Sheet Animations</span></a><a class="docs-next button" href="/rainbow/docs/timers"><span>Timers (C++ only)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#power-of-2">Power of 2</a></li><li><a href="#trigonometry">Trigonometry</a></li><li><a href="#vec2">Vec2</a><ul class="toc-headings"><li><a href="#constants">Constants</a></li><li><a href="#methods">Methods</a></li><li><a href="#operators">Operators</a></li></ul></li><li><a href="#miscellaneous">Miscellaneous</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/rainbow/" class="nav-home"><img src="/rainbow/img/logo.png" alt="Rainbow" width="52" height="52"/></a><div><h5>Docs</h5><a href="/rainbow/docs/getting-started">Getting Started (or other categories)</a><a href="/rainbow/docs/coding-standard">Coding Standard</a></div><div><h5>Community</h5><a href="https://www.reddit.com/r/rainbowtech">Forum</a><a href="https://github.com/tido64/rainbow/issues">Issues</a><a href="https://github.com/tido64/rainbow/pulls">Pull Requests</a><a href="https://trello.com/b/r2TqudY6/rainbow">Roadmap</a></div><div><h5>More</h5><a href="https://github.com/tido64/rainbow">GitHub</a><a class="github-button" href="https://github.com/tido64/rainbow" data-icon="octicon-star" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Bifrost Entertainment AS and Tommy Nguyen</section></footer></div></body></html>

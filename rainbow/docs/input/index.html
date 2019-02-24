@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Input · Rainbow</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The input manager listens to hardware input triggered by a user and fires the"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Input · Rainbow"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tido64.github.io/rainbow/"/><meta property="og:description" content="The input manager listens to hardware input triggered by a user and fires the"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/rainbow/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rainbow/js/scrollSpy.js"></script><link rel="stylesheet" href="/rainbow/css/main.css"/><script src="/rainbow/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rainbow/"><img class="logo" src="/rainbow/img/logo.png" alt="Rainbow"/><h2 class="headerTitleWithLogo">Rainbow</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Components</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/basics">Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Components</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/audio">Audio</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/rainbow/docs/input">Input</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/sprite-sheet-animations">Sprite Sheet Animations</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/math">Math (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/timers">Timers (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/transitions">Transitions (C++ only)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contributing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/coding-standard">Coding Standard</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Input</h1></header><article><div><span><p>The input manager listens to hardware input triggered by a user and fires the
+appropriate events to all subscribed listeners. Such events may include key
+presses, mouse clicks and movements, and controller button presses.</p>
+<p>Classes must inherit <code>InputListener</code> to be eligible for input event
+subscription. Additionally, one or more event delegates may optionally be
+implemented. These will be detailed later.</p>
+<p>Input listeners are chained together and receive events in order of
+subscription. Delegates may return <code>true</code> if an event shouldn't travel further
+down the chain. By default, <code>false</code> is returned so that events reach all
+subscribers.</p>
+<p>Note that we do not differentiate mouse and touch events. Both are considered
+pointer events.</p>
+<h2><a class="anchor" aria-hidden="true" id="input-management-c-only"></a><a href="#input-management-c-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Input Management (C++ only)</h2>
+<p>The input manager is only accessible from the entry point but you can store a
+pointer and pass it around. The pointer is guaranteed to be valid throughout the
+lifetime of your main class.</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-keyword">void</span> MyGame::init_impl(<span class="hljs-keyword">const</span> Vec2i&amp;)
+{
+  Input* input_manager = &amp;input();
+  [...]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="subscribing"></a><a href="#subscribing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Subscribing</h3>
+<pre><code class="hljs css language-cpp"><span class="hljs-keyword">void</span> Input::subscribe(InputListener&amp;);
+<span class="hljs-keyword">void</span> Input::unsubscribe(InputListener&amp;);
+</code></pre>
+<p>Subscribes/unsubscribes <code>listener</code> to input events. A listener will always be
+added to the end of the chain, regardless if it was previously subscribed. A
+deleted listener will automatically unsubscribe itself.</p>
+<h3><a class="anchor" aria-hidden="true" id="handling-key-events"></a><a href="#handling-key-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handling Key Events</h3>
+<p>Key events come in two flavours, one for when a key is pushed down and one for
+when it is released. Listeners may implement any of the following methods to
+receive key events.</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-keyword">auto</span> InputListener::on_key_down_impl(<span class="hljs-keyword">const</span> Key&amp;) override -&gt; <span class="hljs-keyword">bool</span>;
+<span class="hljs-keyword">auto</span> InputListener::on_key_up_impl(<span class="hljs-keyword">const</span> Key&amp;) override -&gt; <span class="hljs-keyword">bool</span>;
+</code></pre>
+<p>The key value of the event is passed as argument and, if available, its
+modifiers (e.g. <code>Ctrl</code>, <code>Alt</code>, or <code>⇧ Shift</code>). The <code>modifier</code> property is a
+bitmask so you easily can check for multiple states. For instance, to check
+whether both <code>Ctrl</code> and <code>⇧ Shift</code> is pressed, perform a bitwise OR of the two
+buttons and check for equality:</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-keyword">if</span> (key.modifier == (Key::Mods::Shift | Key::Mods::Ctrl))
+  LOGI(<span class="hljs-string">"Ctrl+Shift is currently pressed"</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="handling-mouse-touch-events"></a><a href="#handling-mouse-touch-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handling Mouse/Touch Events</h3>
+<p>Implement any of the following methods to receive mouse/touch events.</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-keyword">auto</span> InputListener::on_pointer_began_impl(<span class="hljs-keyword">const</span> ArrayView&lt;Pointer&gt;&amp;) override -&gt; <span class="hljs-keyword">bool</span>;
+<span class="hljs-keyword">auto</span> InputListener::on_pointer_canceled_impl() override -&gt; <span class="hljs-keyword">bool</span>;
+<span class="hljs-keyword">auto</span> InputListener::on_pointer_ended_impl(<span class="hljs-keyword">const</span> ArrayView&lt;Pointer&gt;&amp;) override -&gt; <span class="hljs-keyword">bool</span>;
+<span class="hljs-keyword">auto</span> InputListener::on_pointer_moved_impl(<span class="hljs-keyword">const</span> ArrayView&lt;Pointer&gt;&amp;) override -&gt; <span class="hljs-keyword">bool</span>;
+</code></pre>
+<p>A <code>Pointer</code> instance stores the location of the event, <code>x</code> and <code>y</code>, and the
+timestamp, <code>timestamp</code>, at which the event occurred. Its <code>hash</code> value uniquely
+identifies a touch, or mouse button, for the duration of it touching the screen,
+or mouse button being held.</p>
+<p>The coordinate space origin is at the lower left corner, same as world space.</p>
+<h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
+<p>In this example, we implement keyboard and mouse delegates. We subscribe to
+input events in <code>init_impl()</code>, and unsubscribe in the main class' destructor.
+While this example is running, we type &quot;rainbow&quot; and click on the mouse at two
+random places on the screen. Finally, we close the window using the keyboard
+shortcut Ctrl+Q/⌘Q.</p>
+<pre><code class="hljs css language-cpp">#include "Input/Pointer.h"
+#include "Input/VirtualKey.h"
+#include "Script/GameBase.h"
+
+class InputHandler final : public rainbow::InputListener
+{
+private:
+  auto on_key_down_impl(const rainbow::KeyStroke&amp; k) -&gt; bool override
+  {
+    LOGI("Pressed a key: %c", rainbow::to_keycode(k.key));
+    return true;
+  }
+
+  auto on_pointer_began_impl(
+    const ArrayView&lt;rainbow::Pointer&gt;&amp; pointers) -&gt; bool override
+  {
+    for (auto&amp;&amp; p : pointers)
+      LOGI("Pressed mouse button %u at %i,%i", p.hash, p.x, p.y);
+    return true;
+  }
+};
+
+class InputExample final : public rainbow::GameBase
+{
+public:
+  InputExample(rainbow::Director&amp; director)
+    : rainbow::GameBase(director)
+  {
+  }
+
+  ~InputExample()
+  {
+    // The following line is strictly unnecessary
+    // as |input_handler_| will automatically
+    // unsubscribe itself on destruction.
+    input().unsubscribe(input_handler_);
+  }
+
+private:
+  InputHandler input_handler_;
+
+  void init_impl(const rainbow::Vec2i&amp;) override
+  {
+    input().subscribe(input_handler_);
+  }
+};
+
+auto rainbow::GameBase::create(rainbow::Director&amp; director)
+  -&gt; std::unique_ptr&lt;rainbow::GameBase&gt;
+{
+  return std::make_unique&lt;InputExample&gt;(director);
+}
+</code></pre>
+<p>Output:</p>
+<pre><code class="hljs css language-console">[1428763097479|INFO] Pressed a key: r
+[1428763097523|INFO] Pressed a key: a
+[1428763097574|INFO] Pressed a key: i
+[1428763097624|INFO] Pressed a key: n
+[1428763097691|INFO] Pressed a key: b
+[1428763097757|INFO] Pressed a key: o
+[1428763097874|INFO] Pressed a key: w
+[1428763099291|INFO] Pressed mouse button 1 at 1730,978
+[1428763100741|INFO] Pressed mouse button 1 at 872,686
+[1428763101291|INFO] Pressed a key: 5
+[1428763101461|INFO] Pressed a key: q
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rainbow/docs/audio"><span class="arrow-prev">← </span><span>Audio</span></a><a class="docs-next button" href="/rainbow/docs/sprite-sheet-animations"><span>Sprite Sheet Animations</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#input-management-c-only">Input Management (C++ only)</a><ul class="toc-headings"><li><a href="#subscribing">Subscribing</a></li><li><a href="#handling-key-events">Handling Key Events</a></li><li><a href="#handling-mouse-touch-events">Handling Mouse/Touch Events</a></li></ul></li><li><a href="#example">Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/rainbow/" class="nav-home"><img src="/rainbow/img/logo.png" alt="Rainbow" width="52" height="52"/></a><div><h5>Docs</h5><a href="/rainbow/docs/getting-started">Getting Started (or other categories)</a><a href="/rainbow/docs/coding-standard">Coding Standard</a></div><div><h5>Community</h5><a href="https://www.reddit.com/r/rainbowtech">Forum</a><a href="https://github.com/tido64/rainbow/issues">Issues</a><a href="https://github.com/tido64/rainbow/pulls">Pull Requests</a><a href="https://trello.com/b/r2TqudY6/rainbow">Roadmap</a></div><div><h5>More</h5><a href="https://github.com/tido64/rainbow">GitHub</a><a class="github-button" href="https://github.com/tido64/rainbow" data-icon="octicon-star" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Bifrost Entertainment AS and Tommy Nguyen</section></footer></div></body></html>

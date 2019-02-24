@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Basics · Rainbow</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## File Structure"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Basics · Rainbow"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tido64.github.io/rainbow/"/><meta property="og:description" content="## File Structure"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/rainbow/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rainbow/js/scrollSpy.js"></script><link rel="stylesheet" href="/rainbow/css/main.css"/><script src="/rainbow/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rainbow/"><img class="logo" src="/rainbow/img/logo.png" alt="Rainbow"/><h2 class="headerTitleWithLogo">Rainbow</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/getting-started">Getting Started</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/rainbow/docs/basics">Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Components</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/audio">Audio</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/input">Input</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/sprite-sheet-animations">Sprite Sheet Animations</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/math">Math (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/timers">Timers (C++ only)</a></li><li class="navListItem"><a class="navItem" href="/rainbow/docs/transitions">Transitions (C++ only)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contributing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rainbow/docs/coding-standard">Coding Standard</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Basics</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="file-structure"></a><a href="#file-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>File Structure</h2>
+<ul>
+<li>config.ini (optional)</li>
+<li>index.js</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="configini-optional"></a><a href="#configini-optional" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>config.ini</code> (optional)</h2>
+<p>Rainbow will automatically read <code>config.ini</code> if there is one next to <code>index.js</code>.
+Use it to enable/disable features, and set the window size. Note that some lines
+are ignored on mobile devices.</p>
+<pre><code class="hljs css language-ini"><span class="hljs-section">[core]</span>
+
+<span class="hljs-comment">; Specifies the preferred screen resolution or window size. It also determines</span>
+<span class="hljs-comment">; whether we are in landscape or portrait mode. On smartphones/tablets, width</span>
+<span class="hljs-comment">; and height have no meaning as the whole screen will always be used.</span>
+<span class="hljs-attr">ResolutionWidth</span> = <span class="hljs-number">1920</span>
+<span class="hljs-attr">ResolutionHeight</span> = <span class="hljs-number">1080</span>
+
+<span class="hljs-comment">; Sets number of samples for multisample anti-aliasing. This feature is not</span>
+<span class="hljs-comment">; available on smartphones/tablets.</span>
+<span class="hljs-attr">MSAA</span> = <span class="hljs-number">4</span>
+
+<span class="hljs-comment">; Specifies whether to create windows in HiDPI mode. On smartphones/tablets,</span>
+<span class="hljs-comment">; this option is always `true`.</span>
+<span class="hljs-attr">AllowHiDPI</span> = <span class="hljs-literal">true</span>
+
+<span class="hljs-comment">; Specifies whether to suspend when focus is lost. On smartphones/tablets, this</span>
+<span class="hljs-comment">; option is always `true`.</span>
+<span class="hljs-attr">SuspendOnFocusLost</span> = <span class="hljs-literal">false</span>
+
+<span class="hljs-comment">; Specifies whether the accelerometer is used.</span>
+<span class="hljs-attr">Accelerometer</span> = <span class="hljs-literal">false</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="entry-point"></a><a href="#entry-point" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Entry Point</h2>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-10-tab-11" class="nav-link active" data-group="group_10" data-tab="tab-group-10-content-11">TypeScript</div><div id="tab-group-10-tab-12" class="nav-link" data-group="group_10" data-tab="tab-group-10-content-12">C++</div></div><div class="tab-content"><div id="tab-group-10-content-11" class="tab-pane active" data-group="group_10" tabindex="-1"><div><span><pre><code class="hljs css language-typescript"><span class="hljs-comment">// 'index.js' must implement the following two entry-point functions:</span><br /><br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params">width, height</span>) </span>{<br />  <span class="hljs-comment">// Called once on startup.</span><br />}<br /><br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params">dt</span>) </span>{<br />  <span class="hljs-comment">// Called every frame. |dt| is the time since last frame in milliseconds.</span><br />}<br /><br /><span class="hljs-comment">// There is no draw function. Later, we'll use the render queue to get things</span><br /><span class="hljs-comment">// onto the screen.</span><br /></code></pre>
+</span></div></div><div id="tab-group-10-content-12" class="tab-pane" data-group="group_10" tabindex="-1"><div><span><pre><code class="hljs css language-cpp"><span class="hljs-comment">// Any class that derives from `GameBase` is a potential entry point. The class</span><br /><span class="hljs-comment">// may also override any or none of the methods `init_impl()` and</span><br /><span class="hljs-comment">// `update_impl()`. Although, not overriding any of them will display nothing.</span><br /><br /><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyGame</span> <span class="hljs-title">final</span> :</span> <span class="hljs-keyword">public</span> rainbow::GameBase<br />{<br /><span class="hljs-keyword">public</span>:<br />  MyGame(rainbow::Director&amp; director)<br />    : rainbow::GameBase(director)<br />  {<br />  }<br /><br /><span class="hljs-keyword">private</span>:<br />  rainbow::graphics::Texture texture_;<br />  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;SpriteBatch&gt; batch_;<br /><br />  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init_impl</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Vec2i &amp;screen)</span> override</span>;<br />  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update_impl</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> dt)</span> override</span>;<br />};<br /><br /><span class="hljs-comment">// The engine will call `init_impl()` once on startup, after a graphics context</span><br /><span class="hljs-comment">// has been created. From then on, `update_impl()` will be called every frame.</span><br /><span class="hljs-comment">// `dt` is the time passed since last frame, in milliseconds.</span><br /><span class="hljs-comment">//</span><br /><span class="hljs-comment">// Finally, let Rainbow know which class to use by implementing</span><br /><span class="hljs-comment">// `GameBase::create()`:</span><br /><br /><span class="hljs-keyword">auto</span> rainbow::GameBase::create(rainbow::Director&amp; director)<br />    -&gt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;rainbow::GameBase&gt;<br />{<br />    <span class="hljs-keyword">return</span> <span class="hljs-built_in">std</span>::make_unique&lt;MyGame&gt;(director);<br />}<br /><br /><span class="hljs-comment">// See `Script/NoGame.cpp` and `Script/NoGame.h` for a complete example. We will</span><br /><span class="hljs-comment">// add sprites to the screen in the following sections.</span><br /></code></pre>
+</span></div></div></div></div>
+<h2><a class="anchor" aria-hidden="true" id="sprite-batches"></a><a href="#sprite-batches" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sprite Batches</h2>
+<p>One of Rainbow's philosophies is to always batch sprites. So in order to create
+a sprite, one must first create a batch.</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-13-tab-14" class="nav-link active" data-group="group_13" data-tab="tab-group-13-content-14">TypeScript</div><div id="tab-group-13-tab-15" class="nav-link" data-group="group_13" data-tab="tab-group-13-content-15">C++</div></div><div class="tab-content"><div id="tab-group-13-content-14" class="tab-pane active" data-group="group_13" tabindex="-1"><div><span><pre><code class="hljs css language-typescript"><span class="hljs-comment">// Ensure our objects are alive while being used.</span><br /><span class="hljs-keyword">let</span> batch, texture;<br /><br /><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params">screenWidth, screenHeight</span>)<br /></span>{<br />  <span class="hljs-comment">// Intended number of sprites in batch</span><br />  <span class="hljs-keyword">const</span> count = <span class="hljs-number">2</span>;<br />  batch = <span class="hljs-keyword">new</span> Rainbow.SpriteBatch(count);<br /></code></pre>
+</span></div></div><div id="tab-group-13-content-15" class="tab-pane" data-group="group_13" tabindex="-1"><div><span><pre><code class="hljs css language-cpp"><span class="hljs-keyword">void</span> MyGame::init_impl(<span class="hljs-keyword">const</span> Vec2i&amp; screen)<br />{<br />  <span class="hljs-comment">// Intended number of sprites in batch</span><br />  <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">uint32_t</span> count = <span class="hljs-number">2</span>;<br />  batch_ = <span class="hljs-built_in">std</span>::make_unique&lt;SpriteBatch&gt;(count);<br /></code></pre>
+</span></div></div></div></div>
+<p><code>count</code> tells Rainbow that we intend to create a batch of two sprites. Next,
+we'll create two sprites:</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-16-tab-17" class="nav-link active" data-group="group_16" data-tab="tab-group-16-content-17">TypeScript</div><div id="tab-group-16-tab-18" class="nav-link" data-group="group_16" data-tab="tab-group-16-content-18">C++</div></div><div class="tab-content"><div id="tab-group-16-content-17" class="tab-pane active" data-group="group_16" tabindex="-1"><div><span><pre><code class="hljs css language-typescript">  <span class="hljs-keyword">const</span> sprite1 = batch.createSprite(<span class="hljs-number">72</span>, <span class="hljs-number">97</span>);<br />  <span class="hljs-keyword">const</span> sprite2 = batch.createSprite(<span class="hljs-number">72</span>, <span class="hljs-number">97</span>);<br /><br />  <span class="hljs-comment">// Position our sprites at the center of the screen.</span><br />  <span class="hljs-keyword">const</span> cx = screenWidth * <span class="hljs-number">0.5</span>;<br />  <span class="hljs-keyword">const</span> cy = screenHeight * <span class="hljs-number">0.5</span>;<br />  sprite1.position({ x: cx - <span class="hljs-number">50</span>, y: cy });<br />  sprite2.position({ x: cx + <span class="hljs-number">50</span>, y: cy });<br /></code></pre>
+</span></div></div><div id="tab-group-16-content-18" class="tab-pane" data-group="group_16" tabindex="-1"><div><span><pre><code class="hljs css language-cpp">  <span class="hljs-keyword">auto</span> sprite1 = batch_-&gt;create_sprite(<span class="hljs-number">72</span>, <span class="hljs-number">97</span>);<br />  <span class="hljs-keyword">auto</span> sprite2 = batch_-&gt;create_sprite(<span class="hljs-number">72</span>, <span class="hljs-number">97</span>);<br /><br />  <span class="hljs-comment">// Position our sprites at the center of the screen.</span><br />  <span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> cx = screen.x * <span class="hljs-number">0.5F</span>;<br />  <span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> cy = screen.y * <span class="hljs-number">0.5F</span>;<br />  sprite1-&gt;position({cx - <span class="hljs-number">50</span>, cy});<br />  sprite2-&gt;position({cx + <span class="hljs-number">50</span>, cy});<br /></code></pre>
+</span></div></div></div></div>
+<p>The order in which sprites are created are important as it determines the draw
+order. Here, <code>sprite1</code> is drawn first, followed by <code>sprite2</code>.</p>
+<p>Now we have a sprite batch containing two untextured sprites. Let's add texture:</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-19-tab-20" class="nav-link active" data-group="group_19" data-tab="tab-group-19-content-20">TypeScript</div><div id="tab-group-19-tab-21" class="nav-link" data-group="group_19" data-tab="tab-group-19-content-21">C++</div></div><div class="tab-content"><div id="tab-group-19-content-20" class="tab-pane active" data-group="group_19" tabindex="-1"><div><span><pre><code class="hljs css language-typescript">  <span class="hljs-comment">// Load the texture.</span><br />  texture = <span class="hljs-keyword">new</span> Rainbow.Texture(<span class="hljs-string">"p1_spritesheet.png"</span>);<br />  batch.setTexture(texture);<br /><br />  <span class="hljs-comment">// Assign a texture area to our sprites.</span><br />  <span class="hljs-keyword">const</span> texture_area = { left: <span class="hljs-number">0</span>, bottom: <span class="hljs-number">98</span>, width: <span class="hljs-number">72</span>, height: <span class="hljs-number">97</span> };<br />  sprite1.texture(texture_area);<br />  sprite2.texture(texture_area);<br /></code></pre>
+</span></div></div><div id="tab-group-19-content-21" class="tab-pane" data-group="group_19" tabindex="-1"><div><span><pre><code class="hljs css language-cpp">  <span class="hljs-comment">// Load the texture.</span><br />  texture_ = texture_provider().get(<span class="hljs-string">"p1_spritesheet.png"</span>);<br />  batch_-&gt;set_texture(texture_);<br /><br />  <span class="hljs-comment">// Assign a texture area to our sprites.</span><br />  sprite1-&gt;texture({<span class="hljs-number">0</span>, <span class="hljs-number">98</span>, <span class="hljs-number">72</span>, <span class="hljs-number">97</span>});<br />  sprite2-&gt;texture({<span class="hljs-number">0</span>, <span class="hljs-number">98</span>, <span class="hljs-number">72</span>, <span class="hljs-number">97</span>});<br /></code></pre>
+</span></div></div></div></div>
+<p>First, we load the image to be used as texture, and assign it to the sprite
+batch. The assigned texture will be used on all sprites within a batch. We then
+assign each sprite an area of the texture that it should be mapped to.</p>
+<p>Since sprites have no direct dependency on the texture, one could replace the
+underlying texture and completely change the look of all sprites within a batch.</p>
+<p>Please refer to the API reference for full details. For displaying text, look up
+<code>Label</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="render-queue"></a><a href="#render-queue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Render Queue</h2>
+<p>Anything that needs to be updated and/or drawn every frame, must be added to the
+render queue. The render queue determines the order in which objects are drawn.</p>
+<p>Now we'll add the batch we created earlier:</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-22-tab-23" class="nav-link active" data-group="group_22" data-tab="tab-group-22-content-23">TypeScript</div><div id="tab-group-22-tab-24" class="nav-link" data-group="group_22" data-tab="tab-group-22-content-24">C++</div></div><div class="tab-content"><div id="tab-group-22-content-23" class="tab-pane active" data-group="group_22" tabindex="-1"><div><span><pre><code class="hljs css language-typescript">  <span class="hljs-comment">// Add batch to the render queue.</span><br />  Rainbow.RenderQueue.add(batch);<br />}<br /></code></pre>
+</span></div></div><div id="tab-group-22-content-24" class="tab-pane" data-group="group_22" tabindex="-1"><div><span><pre><code class="hljs css language-cpp">  <span class="hljs-comment">// Add batch to the render queue. Note that the render queue is only</span><br />  <span class="hljs-comment">// accessible from the entry point. If you need it elsewhere, you must pass</span><br />  <span class="hljs-comment">// along a reference to it.</span><br />  render_queue().emplace_back(batch_);<br />}<br /></code></pre>
+</span></div></div></div></div>
+<p>If you compile and run this code, you should see two identical sprites next to
+each other at the center of the screen.</p>
+<p>As always, refer to the API reference for full details.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rainbow/docs/getting-started"><span class="arrow-prev">← </span><span>Getting Started</span></a><a class="docs-next button" href="/rainbow/docs/audio"><span>Audio</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#file-structure">File Structure</a></li><li><a href="#configini-optional"><code>config.ini</code> (optional)</a></li><li><a href="#entry-point">Entry Point</a></li><li><a href="#sprite-batches">Sprite Batches</a></li><li><a href="#render-queue">Render Queue</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/rainbow/" class="nav-home"><img src="/rainbow/img/logo.png" alt="Rainbow" width="52" height="52"/></a><div><h5>Docs</h5><a href="/rainbow/docs/getting-started">Getting Started (or other categories)</a><a href="/rainbow/docs/coding-standard">Coding Standard</a></div><div><h5>Community</h5><a href="https://www.reddit.com/r/rainbowtech">Forum</a><a href="https://github.com/tido64/rainbow/issues">Issues</a><a href="https://github.com/tido64/rainbow/pulls">Pull Requests</a><a href="https://trello.com/b/r2TqudY6/rainbow">Roadmap</a></div><div><h5>More</h5><a href="https://github.com/tido64/rainbow">GitHub</a><a class="github-button" href="https://github.com/tido64/rainbow" data-icon="octicon-star" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Bifrost Entertainment AS and Tommy Nguyen</section></footer></div></body></html>
